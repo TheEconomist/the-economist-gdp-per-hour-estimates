@@ -1,8 +1,12 @@
 # GDP per hour worked 
 
-This repo contains data and code behind our analysis of GDP and productivity. The resulting article can be found [here.](economist.com)
+This repo contains data and code behind our analysis of GDP and productivity. The resulting article can be found [here.](https://www.economist.com/graphic-detail/2023/10/04/productivity-has-grown-faster-in-western-europe-than-in-america)
 
-To replicate the analysis, please run ['scripts/01-data-setup.R'](scripts/01-data-setup.R) and ['scripts/02-charts.R'](scripts/02-charts.R) in that order. 
+To replicate the analysis, please run ['scripts/01-data-setup.R'](scripts/01-data-setup.R) and ['scripts/02-charts.R'](scripts/02-charts.R) in that order. For any questions about this work, email: sondresolstad@economist.com
 
 ## Sources
 OECD, World Bank
+
+## Suggested citation
+The Economist and Solstad, Sondre (corresponding author), 2023. "All work and no play", The Economist, October 4th issue, 2023.
+
