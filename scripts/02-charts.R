@@ -105,3 +105,4 @@ write_csv(unique(pdat[, c('year',
                    'gdp_over_pop_USA')]), 'output-data/gdp_decomposition_pop_weighted_average.csv')
 
 pdat <- read_csv('output-data/gdp_decomposition_pop_weighted_average.csv')
+

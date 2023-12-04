@@ -25,26 +25,26 @@ wdi_dat <- read_csv('source-data/wdi_cache.csv')
 # Get working-age population
 oecd <- read_csv('source-data/working_age_pop_oecd.csv')
 library(countrycode)
-oecd$iso2c <- countrycode(oecd$LOCATION, 'iso3c', 'iso2c')
-oecd <- na.omit(oecd[, c('TIME', 'iso2c', 'Value')])
-colnames(oecd) <- c('year', 'iso2c', 'working_age_pop_pct')
+oecd$iso3c <- oecd$LOCATION
+oecd <- na.omit(oecd[, c('TIME', 'iso3c', 'Value')])
+colnames(oecd) <- c('year', 'iso3c', 'working_age_pop_pct')
 wdi_dat <- merge(wdi_dat, oecd, all.x = T)
 
 # Get employment rate
 oecd <- read_csv('source-data/employment_rate_oecd.csv')
 oecd <- oecd[oecd$SUBJECT == 'TOT' &  oecd$MEASURE == "PC_WKGPOP" & oecd$FREQUENCY == 'A', ]
 library(countrycode)
-oecd$iso2c <- countrycode(oecd$LOCATION, 'iso3c', 'iso2c')
-oecd <- na.omit(oecd[, c('TIME', 'iso2c', 'Value')])
-colnames(oecd) <- c('year', 'iso2c', 'employment_rate')
+oecd$iso3c <- oecd$LOCATION
+oecd <- na.omit(oecd[, c('TIME', 'iso3c', 'Value')])
+colnames(oecd) <- c('year', 'iso3c', 'employment_rate')
 wdi_dat <- merge(wdi_dat, oecd, all.x = T)
 
 # Get hours worked 
 oecd <- read_csv('source-data/hours_worked_oecd.csv')
 library(countrycode)
-oecd$iso2c <- countrycode(oecd$LOCATION, 'iso3c', 'iso2c')
-oecd <- na.omit(oecd[, c('TIME', 'iso2c', 'Value')])
-colnames(oecd) <- c('year', 'iso2c', 'hours_worked')
+oecd$iso3c <- oecd$LOCATION
+oecd <- na.omit(oecd[, c('TIME', 'iso3c', 'Value')])
+colnames(oecd) <- c('year', 'iso3c', 'hours_worked')
 wdi_dat <- merge(wdi_dat, oecd, all.x = T)
 
 # Get hours worked (alternative way, recommended by the OECD)
@@ -56,26 +56,29 @@ hours <- oecd[oecd$Subject == "Average hours worked per person employed", ]
 hours$year <- hours$Time
 hours$hours_per_employed <- hours$Value
 hours <- merge(hours[, c('year', 'Country', 'hours_per_employed')], employed[, c('year', 'Country', 'employed')])
-hours$iso2c <- countrycode(hours$Country, 'country.name', 'iso2c')
+hours$iso3c <- countrycode(hours$Country, 'country.name', 'iso3c')
 hours$total_hours <- hours$hours_per_employed*hours$employed
 
-wdi_dat <- merge(wdi_dat, hours[, c('iso2c', 'year', 'total_hours', 'hours_per_employed', 'employed')], all.x=T)
+wdi_dat <- merge(wdi_dat, hours[, c('iso3c', 'year', 'total_hours', 'hours_per_employed', 'employed')], all.x=T)
 wdi_dat <- wdi_dat[!is.na(wdi_dat$year), ]
 
 # Carry forward total hours and hours worked if missing for recent years, skipping 2020 as abnormal year: 
 # (This affects Russia and South Africa)
 for(i in unique(wdi_dat$iso3c[!is.na(wdi_dat$hours_worked)])){
-  if(is.na(wdi_dat$total_hours[wdi_dat$iso3c == i & wdi_dat$year == 2021 & !is.na(wdi_dat$iso3c)])){
-    wdi_dat$total_hours[wdi_dat$iso3c == i & wdi_dat$year == 2021 & !is.na(wdi_dat$iso3c)] <- wdi_dat$total_hours[wdi_dat$iso3c == i & wdi_dat$year == 2019 & !is.na(wdi_dat$iso3c)]
-  }
-  if(is.na(wdi_dat$total_hours[wdi_dat$iso3c == i & wdi_dat$year == 2022 & !is.na(wdi_dat$iso3c)])){
-    wdi_dat$total_hours[wdi_dat$iso3c == i & wdi_dat$year == 2022 & !is.na(wdi_dat$iso3c)] <- wdi_dat$total_hours[wdi_dat$iso3c == i & wdi_dat$year == 2021 & !is.na(wdi_dat$iso3c)]
-  }
   if(is.na(wdi_dat$hours_worked[wdi_dat$iso3c == i & wdi_dat$year == 2021 & !is.na(wdi_dat$iso3c)])){
     wdi_dat$hours_worked[wdi_dat$iso3c == i & wdi_dat$year == 2021 & !is.na(wdi_dat$iso3c)] <- wdi_dat$hours_worked[wdi_dat$iso3c == i & wdi_dat$year == 2019 & !is.na(wdi_dat$iso3c)]
   }
   if(is.na(wdi_dat$hours_worked[wdi_dat$iso3c == i & wdi_dat$year == 2022 & !is.na(wdi_dat$iso3c)])){
     wdi_dat$hours_worked[wdi_dat$iso3c == i & wdi_dat$year == 2022 & !is.na(wdi_dat$iso3c)] <- wdi_dat$hours_worked[wdi_dat$iso3c == i & wdi_dat$year == 2021 & !is.na(wdi_dat$iso3c)]
+  }
+}
+
+for(i in na.omit(unique(wdi_dat$iso3c[!is.na(wdi_dat$total_hours)]))){
+  if(is.na(wdi_dat$total_hours[wdi_dat$iso3c == i & wdi_dat$year == 2021 & !is.na(wdi_dat$iso3c)])){
+    wdi_dat$total_hours[wdi_dat$iso3c == i & wdi_dat$year == 2021 & !is.na(wdi_dat$iso3c)] <- wdi_dat$total_hours[wdi_dat$iso3c == i & wdi_dat$year == 2019 & !is.na(wdi_dat$iso3c)]
+  }
+  if(is.na(wdi_dat$total_hours[wdi_dat$iso3c == i & wdi_dat$year == 2022 & !is.na(wdi_dat$iso3c)])){
+    wdi_dat$total_hours[wdi_dat$iso3c == i & wdi_dat$year == 2022 & !is.na(wdi_dat$iso3c)] <- wdi_dat$total_hours[wdi_dat$iso3c == i & wdi_dat$year == 2021 & !is.na(wdi_dat$iso3c)]
   }
 }
 
@@ -95,5 +98,18 @@ wdi_dat$gdp_over_pop_c <- wdi_dat$gdp_c/wdi_dat$pop
 wdi_dat$gdp_ppp_over_k_hours_worked_c <- 1000*wdi_dat$gdp_ppp_c/wdi_dat$total_hours
 
 
+
+
 # Export to file
 write_csv(wdi_dat, 'output-data/gdp_over_hours_worked.csv')
+
+
+
+
+
+
+
+
+# FIDSIADOPJSAGHO:SDADFASDA
+
+
