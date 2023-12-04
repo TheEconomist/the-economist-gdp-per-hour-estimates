@@ -10,10 +10,11 @@ wdi_extra <- WDI(country = c('all'),
                  indicator = c('pop_0_to_14' = 'SP.POP.0014.TO.ZS',
                                'pop_15_to_64' = 'SP.POP.1564.TO',
                                'labor_force_partic_ILO_female' = 'SL.TLF.CACT.FE.ZS',
-                               'labor_force_partic_ILO' = 'SL.TLF.CACT.ZS'),
+                               'labor_force_partic_ILO' = 'SL.TLF.CACT.ZS',
+                               'pop_percent_male' = 'SP.POP.TOTL.MA.ZS'),
                  start = 2012)
 wdi_extra <- wdi_extra[, c('iso3c', 'year', 'pop_0_to_14', 'pop_15_to_64', 'labor_force_partic_ILO',
-                           'labor_force_partic_ILO_female')]
+                           'labor_force_partic_ILO_female', 'pop_percent_male')]
 
 # Load base data:
 wdi_dat <- read_csv('output-data/gdp_over_hours_worked.csv')
@@ -22,6 +23,22 @@ wdi_dat$region <- countrycode(wdi_dat$iso3c, 'iso3c', 'region')
 
 # Source: https://www.rug.nl/ggdc/productivity/pwt/
 penn <- read_xlsx('source-data/pwt1001.xlsx', skip = 0, sheet = 3)
+
+# Oil reserves:
+oil <- read_csv('source-data/oil-proved-reserves.csv')
+oil$year <- oil$Year
+oil$iso3c <- oil$Code
+oil$oil <- oil$`Oil proved reserves - BBL`
+
+# Assume oil reserves in 2021-2023 = those in 2020
+temp <- oil[oil$year == 2020, ]
+temp$year <- 2021
+oil <- rbind(oil, temp)
+temp$year <- 2022
+oil <- rbind(oil, temp)
+temp$year <- 2023
+oil <- rbind(oil, temp)
+oil <- oil[, c('year', 'iso3c', 'oil')]
 
 # Step 2: Merge data ------------------------------------
 penn$penn_employment <- penn$emp
@@ -35,8 +52,12 @@ penn$penn_hours_worked_over_pop <- penn$penn_average_hours_worked*penn$penn_empl
 
 dat <- merge(wdi_dat, penn, by = c('year', 'iso3c'), all = T)
 dat <- merge(dat, wdi_extra, by = c('year', 'iso3c'), all.x = T)
+dat <- merge(dat, oil, by = c('year', 'iso3c'), all.x = T)
 dat <- dat[!is.na(dat$iso3c), ]
 dat$pop_15_to_64 <- dat$pop_15_to_64 / dat$pop
+
+dat$oil <- dat$oil / dat$pop
+dat$oil[is.na(dat$oil)] <- 0
 
 # Step 3: Model hours worked: ------------------------------------
 dat$hours_worked_over_pop <- dat$total_hours / dat$pop
@@ -63,7 +84,7 @@ if('region' %in% colnames(dat)){
 }
 
 # Impute out-of-range value for missing (allows splits)
-NA_impute_vars <- c("pop_0_to_14", "pop_15_to_64", "pop_over_65", 'gdp_ppp_over_pop', 'labor_force_partic_ILO', 'labor_force_partic_ILO_female')
+NA_impute_vars <- c("pop_0_to_14", "pop_15_to_64", "pop_over_65", 'gdp_ppp_over_pop', 'labor_force_partic_ILO', 'labor_force_partic_ILO_female', 'pop_percent_male')
 for(i in NA_impute_vars){
   dat[, paste0(i, '_is_NA')] <- as.numeric(is.na(dat[, i]))
   dat[is.na(dat[, i]), i] <- -1
@@ -72,7 +93,7 @@ for(i in NA_impute_vars){
 # Generate matricies and split into test and training data
 train <- dat[!is.na(dat$hours_worked_over_pop_combined), ]
 
-train <- na.omit(dat[dat$year >= 2000, c("hours_worked_over_pop_combined", "year", "pop_0_to_14", "pop_15_to_64", "pop_over_65", 'gdp_ppp_over_pop', 'iso3c', 'continent', 'region', 'pop', paste0(NA_impute_vars, '_is_NA'))])
+train <- na.omit(dat[dat$year >= 2000, c("hours_worked_over_pop_combined", "year", "pop_0_to_14", "pop_15_to_64", "pop_over_65", 'oil', 'gdp_ppp_over_pop', 'iso3c', 'continent', 'region', 'pop', 'pop_percent_male', paste0(NA_impute_vars, '_is_NA'))])
 isos <- train$iso3c
 train$iso3c <- NULL
 years <- train$year
@@ -233,7 +254,7 @@ write_csv(dat[dat$year == 2022 & !dat$is_grouping, c('year', 'country', 'iso3c',
 # Inspect the results
 library(ggbeeswarm)
 pdat <- dat[dat$year == 2022 & !dat$is_grouping,]
-ggplot(pdat[ !is.na(pdat$gdp_ppp_over_pop_adjusted_for_hours), ], aes(y=reorder(country, gdp_ppp_over_pop_adjusted_for_hours), yend=country, x=gdp_ppp_over_pop_adjusted_for_hours, xend=gdp_ppp_over_pop, col=use_model))+geom_segment()+geom_point()
+ggplot(pdat[ !is.na(pdat$gdp_ppp_over_pop_adjusted_for_hours), ], aes(y=reorder(country, gdp_ppp_over_pop_adjusted_for_hours), yend=country, size = pop, x=gdp_ppp_over_pop_adjusted_for_hours, xend=gdp_ppp_over_pop, col=use_model))+geom_segment()+geom_point()
 
 ggplot(pdat[!is.na(pdat$gdp_ppp_over_pop_adjusted_for_hours), ], aes(y=gdp_ppp_over_pop_adjusted_for_hours, x=year, size = pop, col=use_model))+geom_beeswarm()+
   scale_y_continuous(trans = 'log10')+
