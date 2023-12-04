@@ -224,15 +224,16 @@ dat$hours_worked_over_pop_combined[is.na(dat$hours_worked_over_pop_combined)] <-
 ggplot(dat[dat$year >= 2010, ], aes(x=year, y=hours_worked_over_pop_combined, size = pop, col=iso3c, alpha = ifelse(use_model, 1, 0.2)))+geom_line()+theme(legend.pos ='none')
 
 # Exclude a few countries which have entered major conflict since 2015 and remained in it:
-dat$hours_worked_over_pop_combined[dat$country %in% c('Ukraine', 'Myanmar', "Sudan", "West Bank and Gaza")] <- NA
-  
+dat$hours_worked_over_pop_combined[dat$country %in% c('Ukraine', 'Myanmar') & dat$year > 2021] <- NA
+dat$hours_worked_over_pop_combined[dat$country %in% c("Sudan", "West Bank and Gaza") & dat$year > 2022] <- NA
+
 # Generate target column: ------------------------------------
 dat$is_grouping <- is.na(countrycode(dat$iso3c, 'iso3c', 'country.name'))
 dat$hours_worked_KNOWN_PLUS_ESTIMATED <- dat$hours_worked_over_pop_combined*dat$pop
 
 dat$hour_worked_adjustment <- NA
 for(i in 2015:2023){
-  dat$hours_worked_adjustment[dat$year == i] <- 1/(dat$hours_worked_over_pop_combined[dat$year == i] / median(dat$hours_worked_over_pop_combined[dat$year == i], w = dat$pop[dat$year == i], na.rm = T))
+  dat$hours_worked_adjustment[dat$year == i] <- 1/(dat$hours_worked_over_pop_combined[dat$year == i] / weighted.mean(dat$hours_worked_over_pop_combined[dat$year == i], w = dat$pop[dat$year == i], na.rm = T))
 }
 
 # Inspect:
@@ -254,7 +255,8 @@ write_csv(dat[dat$year == 2022 & !dat$is_grouping, c('year', 'country', 'iso3c',
 # Inspect the results
 library(ggbeeswarm)
 pdat <- dat[dat$year == 2022 & !dat$is_grouping,]
-ggplot(pdat[ !is.na(pdat$gdp_ppp_over_pop_adjusted_for_hours), ], aes(y=reorder(country, gdp_ppp_over_pop_adjusted_for_hours), yend=country, size = pop, x=gdp_ppp_over_pop_adjusted_for_hours, xend=gdp_ppp_over_pop, col=use_model))+geom_segment()+geom_point()
+ggplot(pdat[ !is.na(pdat$gdp_ppp_over_pop_adjusted_for_hours), ], aes(y=reorder(country, gdp_ppp_over_pop_adjusted_for_hours), yend=country, size = pop, x=gdp_ppp_over_pop_adjusted_for_hours, xend=gdp_ppp_over_pop, col=use_model))+geom_segment()+geom_point()+
+  scale_x_continuous(trans='log10')
 
 ggplot(pdat[!is.na(pdat$gdp_ppp_over_pop_adjusted_for_hours), ], aes(y=gdp_ppp_over_pop_adjusted_for_hours, x=year, size = pop, col=use_model))+geom_beeswarm()+
   scale_y_continuous(trans = 'log10')+
