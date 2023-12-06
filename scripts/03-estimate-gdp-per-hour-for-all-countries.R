@@ -6,6 +6,7 @@ library(readxl)
 # Step 1: Load data ------------------------------------
 
 # Get extra WDI data:
+library(WDI)
 wdi_extra <- WDI(country = c('all'),
                  indicator = c('pop_0_to_14' = 'SP.POP.0014.TO.ZS',
                                'pop_15_to_64' = 'SP.POP.1564.TO',
@@ -231,7 +232,7 @@ dat$hours_worked_over_pop_combined[dat$country %in% c("Sudan", "West Bank and Ga
 dat$is_grouping <- is.na(countrycode(dat$iso3c, 'iso3c', 'country.name'))
 dat$hours_worked_KNOWN_PLUS_ESTIMATED <- dat$hours_worked_over_pop_combined*dat$pop
 
-dat$hour_worked_adjustment <- NA
+dat$hours_worked_adjustment <- NA
 for(i in 2015:2023){
   dat$hours_worked_adjustment[dat$year == i] <- 1/(dat$hours_worked_over_pop_combined[dat$year == i] / weighted.mean(dat$hours_worked_over_pop_combined[dat$year == i], w = dat$pop[dat$year == i], na.rm = T))
 }
@@ -247,16 +248,16 @@ for(i in NA_impute_vars){
 
 # Save:
 dat$gdp_ppp_over_pop_adjusted_for_hours <- dat$gdp_ppp_over_pop*dat$hours_worked_adjustment
+dat$gdp_ppp_over_population_15_to_65 <- dat$gdp_ppp / (dat$pop*dat$pop_15_to_64)
 
 write_csv(dat, "output-data/gdp_over_hours_worked_with_estimated_hours_worked.csv")
-write_csv(dat[dat$year == 2022 & !dat$is_grouping, c('year', 'country', 'iso3c', 'pop', 'gdp_over_pop', 'gdp_ppp_over_pop', 'gdp_ppp_over_pop_adjusted_for_hours', 'estimated_using_past_value', "estimated_using_model")], 
+write_csv(dat[dat$year == 2022 & !dat$is_grouping, c('year', 'country', 'iso3c', 'pop', 'gdp_over_pop', 'gdp_ppp_over_pop', 'gdp_ppp_over_population_15_to_65', 'gdp_ppp_over_pop_adjusted_for_hours', 'estimated_using_past_value', "estimated_using_model")], 
           "output-data/gdp_2022_for_interactive.csv")
 
 # Inspect the results
 library(ggbeeswarm)
 pdat <- dat[dat$year == 2022 & !dat$is_grouping,]
-ggplot(pdat[ !is.na(pdat$gdp_ppp_over_pop_adjusted_for_hours), ], aes(y=reorder(country, gdp_ppp_over_pop_adjusted_for_hours), yend=country, size = pop, x=gdp_ppp_over_pop_adjusted_for_hours, xend=gdp_ppp_over_pop, col=use_model))+geom_segment()+geom_point()+
-  scale_x_continuous(trans='log10')
+ggplot(pdat[ !is.na(pdat$gdp_ppp_over_pop_adjusted_for_hours), ], aes(y=reorder(country, gdp_ppp_over_pop_adjusted_for_hours), yend=country, size = pop, x=gdp_ppp_over_pop_adjusted_for_hours, xend=gdp_ppp_over_pop, col=use_model))+geom_segment()+geom_point()+scale_x_continuous(trans='log10')+ylab('')+theme(axis.text.y = element_text(size = 4))
 
 ggplot(pdat[!is.na(pdat$gdp_ppp_over_pop_adjusted_for_hours), ], aes(y=gdp_ppp_over_pop_adjusted_for_hours, x=year, size = pop, col=use_model))+geom_beeswarm()+
   scale_y_continuous(trans = 'log10')+
