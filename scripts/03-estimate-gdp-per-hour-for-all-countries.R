@@ -121,6 +121,8 @@ for (i in seq_along(ordered_countries)) {
   categories[[cat_index]] <- c(categories[[cat_index]], ordered_countries[i])
 }
 
+# We next test our modelling approach using 10-fold cross validation
+
 # Run 10-fold CV:
 res <- data.frame()
 for(i in categories){
@@ -157,14 +159,6 @@ for(i in categories){
     geom_point()
   
   res <- rbind(res, preds[isos %in% test, ])
-  
-  cat('////////////////////////////////////////////')
-  cat('////////////////////////////////////////////')
-  cat('////////////////////////////////////////////')
-  cat('////////////////////////////////////////////')
-  cat('////////////////////////////////////////////')
-  cat('////////////////////////////////////////////')
-  Sys.sleep(1)
 }
 
 # Plot result of 10-fold cv
@@ -176,7 +170,7 @@ ggplot(res, aes(y=actual-preds_gbt, x=gdp_ppp_over_pop, size = pop, col=iso3c))+
   geom_abline(aes(intercept=0, slope=0))+
   geom_smooth(method = 'lm', aes(group = '1'), weights = res$pop) 
 
-# Suggests calibrated out-of-sample-predictions and acceptable / well-behaved errors.
+# Suggests calibrated out-of-sample-predictions and acceptable / well-behaved errors. This suggest using this modelling approach is appropriate and we can use it for our main model.
 
 # Fit main model
 gbt_fit <- gbt.train(y=train$hours_worked_over_pop_combined,
@@ -198,7 +192,6 @@ ggplot(preds, aes(x=preds_gbt, y=actual, size = pop, col=iso3c))+geom_point()+
 
 # Fit predictions:
 dat$hours_worked_over_pop_predicted <- predict(gbt_fit, newdata = as.matrix(dat[, setdiff(colnames(train), "hours_worked_over_pop_combined")]))
-
 
 # Generate target column: ------------------------------------
 
@@ -222,6 +215,7 @@ dat$estimated_using_past_value <- is.na(dat$hours_worked_over_pop) & !is.na(dat$
 dat$estimated_using_model <- is.na(dat$hours_worked_over_pop_combined)
 dat$hours_worked_over_pop_combined[is.na(dat$hours_worked_over_pop_combined)] <- dat$hours_worked_over_pop_predicted[is.na(dat$hours_worked_over_pop_combined)]
 
+# Inspect the results to check if appropriate:
 ggplot(dat[dat$year >= 2010, ], aes(x=year, y=hours_worked_over_pop_combined, size = pop, col=iso3c, alpha = ifelse(use_model, 1, 0.2)))+geom_line()+theme(legend.pos ='none')
 
 # Exclude a few countries which have entered major conflict since 2015 and remained in it:
@@ -253,13 +247,3 @@ dat$gdp_ppp_over_population_15_to_65 <- dat$gdp_ppp / (dat$pop*dat$pop_15_to_64)
 write_csv(dat, "output-data/gdp_over_hours_worked_with_estimated_hours_worked.csv")
 write_csv(dat[dat$year == 2022 & !dat$is_grouping, c('year', 'country', 'iso3c', 'pop', 'gdp_over_pop', 'gdp_ppp_over_pop', 'gdp_ppp_over_population_15_to_65', 'gdp_ppp_over_pop_adjusted_for_hours', 'estimated_using_past_value', "estimated_using_model")], 
           "output-data/gdp_2022_for_interactive.csv")
-
-# Inspect the results
-library(ggbeeswarm)
-pdat <- dat[dat$year == 2022 & !dat$is_grouping,]
-ggplot(pdat[ !is.na(pdat$gdp_ppp_over_pop_adjusted_for_hours), ], aes(y=reorder(country, gdp_ppp_over_pop_adjusted_for_hours), yend=country, size = pop, x=gdp_ppp_over_pop_adjusted_for_hours, xend=gdp_ppp_over_pop, col=use_model))+geom_segment()+geom_point()+scale_x_continuous(trans='log10')+ylab('')+theme(axis.text.y = element_text(size = 4))
-
-ggplot(pdat[!is.na(pdat$gdp_ppp_over_pop_adjusted_for_hours), ], aes(y=gdp_ppp_over_pop_adjusted_for_hours, x=year, size = pop, col=use_model))+geom_beeswarm()+
-  scale_y_continuous(trans = 'log10')+
-  coord_flip()
-
