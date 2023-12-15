@@ -2,7 +2,7 @@
 
 This repo contains data and code behind our analysis of GDP and productivity. The resulting article can be found [here.](https://www.economist.com/graphic-detail/2023/10/04/productivity-has-grown-faster-in-western-europe-than-in-america) To replicate the analysis, please run ['scripts/01-data-setup.R'](scripts/01-data-setup.R) and ['scripts/02-charts.R'](scripts/02-charts.R) in that order. 
 
-It also contains the data and code behind our ranking of the world's richest countries, which can be found [here](https://www.economist.com/graphic-detail/2023/12/15/the-worlds-richest-countries-in-2023). To replicate this analysis, please run the two aforementioned scripts, then ['scripts/03-estimate-gdp-per-hour-for-all-countries.R'](scripts/03-estimate-gdp-per-hour-for-all-countries.R).
+It also contains the data and code behind our ranking of the world's richest countries, which can be found [here](https://www.economist.com/graphic-detail/2023/12/15/the-worlds-richest-countries-in-2023). To replicate this analysis, please run the two aforementioned scripts, then ['scripts/03-estimate-gdp-per-hour-for-all-countries.R'](scripts/03-estimate-gdp-per-hour-for-all-countries.R). 
 
 For any questions about this work, please email: sondresolstad@economist.com
 
@@ -15,7 +15,10 @@ If no such data was available from either source, we estimated it. We here relie
 
 Those interested can replicate and inspect our calibration plots, other tests, and view all the code [here](https://github.com/TheEconomist/the-economist-gdp-per-hour-estimates/blob/main/output-data/gdp_over_hours_worked_with_estimated_hours_worked.csv).
 
-## Sources
+## Notes
+This work shows the latest data available, which at the time of publication, were estimates of 2022 values made in 2023. This means that economic change during 2023 are not captured in the data. Our data also only shows country averages, and does not consider the distribution of income within countries. In some countries high savings rates or other factors may make GDP estimates less reliable as a guide to living standards. Finally, we rely on GDP estimates which are themselves uncertain, and, research suggests, may be especially unreliable for authoritarian countries.  
+
+## Data sources
 [OECD](https://data.oecd.org/), [World Bank](https://data.worldbank.org/), [UN](https://population.un.org/dataportal/), [Penn World Table](https://www.rug.nl/ggdc/productivity/pwt/?lang=en)
 
 ## Suggested citation
