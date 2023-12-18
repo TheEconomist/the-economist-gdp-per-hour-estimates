@@ -11,11 +11,13 @@ For any questions about this work, please email: sondresolstad@economist.com
 Our latest data can be downloaded [here](https://github.com/TheEconomist/the-economist-gdp-per-hour-estimates/blob/main/output-data/gdp_over_hours_worked_with_estimated_hours_worked.csv).
 
 ## Methodology: Estimating GDP per hour worked
-For OECD countries, we followed guidance from OECD statisticians on how to use their data to calculate total hours worked. OECD data was not available for all countries. When missing, we first turned to the Penn World Table. If this source had data available for a country from 2015 or later, we used the most recent value. (We first checked that this was permissible using our OECD data: with the exception of a temporary dip during the early stages of the covid-19 pandemic, values were stable in this interval.) 
+For OECD countries, we followed guidance from OECD statisticians on how to use their data to calculate total hours worked. 
+
+The relevant OECD data was not available for all countries. When missing, we first turned to the Penn World Table. If this source had data available for a country from 2015 or later, we used the most recent value. (We first checked that this was permissible using our OECD data: with the exception of a temporary dip during the early stages of the covid-19 pandemic, values were stable in this interval.) 
 
 If no such data was available from either source, we estimated it. We here relied on gradient boosted trees as our modelling approach, and used data on countries' demography and economics (including known oil reserves) to train our models. These estimates are uncertain, as we acknowledge, and especially so for poor countries. While our method held up well in cross-validation, our estimates for the very poorest countries, for instance, could be systematically off, and should be approached with care (this would however not greatly affect their rankings). 
 
-GDP adjusted for hours worked (and costs) were calculated by adjusting GDP PPP in a given country by the ratio of their estimated hours worked per person to the average for the world as a whole (i.e. mean of all countries, weighted by population). 
+GDP per hour worked was then calculated by dividing countries' total GDP by their hours worked. GDP adjusted for hours worked (and costs) were calculated by adjusting GDP PPP in a given country by the ratio of their estimated hours worked per person to the average for the world as a whole (i.e. mean of all countries, weighted by population). 
 
 Those interested can replicate and inspect our calibration plots, other tests, and view all the code [here](https://github.com/TheEconomist/the-economist-gdp-per-hour-estimates/blob/main/output-data/gdp_over_hours_worked_with_estimated_hours_worked.csv).
 
