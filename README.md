@@ -4,6 +4,8 @@ This repo contains data and code behind our analysis of GDP and productivity. Th
 
 It also contains the data and code behind our ranking of the world's richest countries, which can be found [here](https://www.economist.com/graphic-detail/2023/12/15/the-worlds-richest-countries-in-2023). To replicate this analysis, please run the two aforementioned scripts, then ['scripts/03-estimate-gdp-per-hour-for-all-countries.R'](scripts/03-estimate-gdp-per-hour-for-all-countries.R). 
 
+We exclude Ireland from our data due to issues with its GDP figures explained [here](https://www.economist.com/the-economist-explains/2023/10/31/whats-weird-about-irelands-gdp).
+
 For any questions about this work, please email: sondresolstad@economist.com
 
 Our latest data can be downloaded [here](https://github.com/TheEconomist/the-economist-gdp-per-hour-estimates/blob/main/output-data/gdp_over_hours_worked_with_estimated_hours_worked.csv).
