@@ -16,6 +16,45 @@ if(!use_cache){
                             'unemployment_r' = 'SL.UEM.TOTL.ZS',
                             'pop_over_65' = 'SP.POP.65UP.TO.ZS'),
               start = 1980)
+  
+  # For a small number of countries, the most recent (currently 2023) data remains missing. For these, we manually added data using estimated growth rates (from the IMF https://www.imf.org/external/datamapper/NGDP_RPCH@WEO/PER), where available:
+  missing_gdp_countries <- intersect(wdi_dat$country[is.na(wdi_dat$gdp) & wdi_dat$year == 2023],
+                                 wdi_dat$country[!is.na(wdi_dat$gdp) & wdi_dat$year == 2022])
+  
+  # For posterity, these countries were:
+  # missing_gdp_countries <- c(
+  # "Afghanistan" ,     "American Samoa"  , "Aruba"          ,  "Bermuda"  ,       
+  # "Bhutan"      ,     "Cayman Islands"  , "Channel Islands",  "Curacao"  ,       
+  # "Faroe Islands" ,   "French Polynesia", "Guam"          ,   "Liechtenstein" ,  
+  # "Monaco"       ,    "New Caledonia"   , "Qatar"         ,   "Tonga")    
+  
+  missing_gdp <- data.frame(country = missing_gdp_countries,
+                            gdp_growth = c(NA, # Afghanistan
+                                           NA, # American Samoa
+                                           5.3, # Aruba
+                                           NA, # Bermuda
+                                           4.6, # Bhutan
+                                           NA, # Cayman Islands
+                                           NA, # Channel Islands
+                                           NA, # Curacao
+                                           NA, # Faraoe Islands
+                                           NA, # French Polynesia
+                                           NA, # Guam
+                                           NA, # Liechtenstein
+                                           NA, # Monaco
+                                           NA, # New Caledonia
+                                           1.6, # Qatar
+                                           2.6 # Tonga
+                                           ))
+  
+  for(i in missing_gdp$country){
+    for(j in c('gdp', 'gdp_c', 'gdp_ppp_c', 'gdp_ppp')){
+      if(is.na(wdi_dat[wdi_dat$country == i & wdi_dat$year == 2023, j])){
+        wdi_dat[wdi_dat$country == i & wdi_dat$year == 2023, j] <- wdi_dat[wdi_dat$country == i & wdi_dat$year == 2022, j]*missing_gdp$gdp_growth[missing_gdp$country == i]
+        }
+      }
+  }
+  
   write_csv(wdi_dat, 'source-data/wdi_cache.csv')
   }
 wdi_dat <- read_csv('source-data/wdi_cache.csv')
