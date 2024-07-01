@@ -2,6 +2,7 @@
 library(tidyverse)
 library(anytime)
 library(readxl)
+library(countrycode)
 
 # Step 1: Load data ------------------------------------
 
@@ -232,7 +233,7 @@ for(i in 2015:2023){
 }
 
 # Inspect:
-ggplot(dat[!dat$is_grouping & dat$year == 2022 & !is.na(dat$country), ], aes(y=reorder(country, gdp_ppp_over_pop), col=use_model, x=hours_worked_adjustment))+geom_point()
+ggplot(dat[!dat$is_grouping & dat$year == 2023 & !is.na(dat$country), ], aes(y=reorder(country, gdp_ppp_over_pop), col=use_model, x=hours_worked_adjustment))+geom_point()
 
 # Clean data:
 for(i in NA_impute_vars){
@@ -245,9 +246,9 @@ dat$gdp_ppp_over_pop_adjusted_for_hours <- dat$gdp_ppp_over_pop*dat$hours_worked
 dat$gdp_ppp_over_population_15_to_65 <- dat$gdp_ppp / (dat$pop*dat$pop_15_to_64)
 
 write_csv(dat, "output-data/gdp_over_hours_worked_with_estimated_hours_worked.csv")
-write_csv(dat[dat$year == 2022 & !dat$is_grouping, c('year', 'country', 'iso3c', 'pop', 'gdp_over_pop', 'gdp_ppp_over_pop', 'gdp_ppp_over_population_15_to_65', 'gdp_ppp_over_pop_adjusted_for_hours', 'estimated_using_past_value', "estimated_using_model")], 
-          "output-data/gdp_2022_for_interactive.csv")
+write_csv(dat[dat$year == 2023 & !dat$is_grouping, c('year', 'country', 'iso3c', 'pop', 'gdp_over_pop', 'gdp_ppp_over_pop', 'gdp_ppp_over_population_15_to_65', 'gdp_ppp_over_pop_adjusted_for_hours', 'estimated_using_past_value', "estimated_using_model")], 
+          "output-data/gdp_2023_for_interactive.csv")
 
-write_csv(na.omit(dat[dat$year == 2022 & dat$country != 'Ireland' & !dat$is_grouping, c('year', 'country', 'iso3c', 'pop', 'gdp_over_pop', 'gdp_ppp_over_pop', 'gdp_ppp_over_population_15_to_65', 'gdp_ppp_over_pop_adjusted_for_hours')]), 
+write_csv(na.omit(dat[dat$year == 2023 & dat$country != 'Ireland' & !dat$is_grouping, c('year', 'country', 'iso3c', 'pop', 'gdp_over_pop', 'gdp_ppp_over_pop', 'gdp_ppp_over_population_15_to_65', 'gdp_ppp_over_pop_adjusted_for_hours')]), 
           "output-data/the_economist_rich_list_2023.csv")
 

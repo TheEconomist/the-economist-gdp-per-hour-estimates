@@ -35,12 +35,12 @@ ggplot(lpdat[lpdat$type %in% c('gdp_ppp_over_k_hours_worked', 'gdp_over_pop'), ]
        aes(x=year, y=index_diff_to_us, col=country, group=country))+geom_line(col='gray', alpha = 0.5)+
   geom_line(data=lpdat[lpdat$country %in% c('Germany', 'United States', 'France', 'Germany', 'Korea, Rep.', 'Austria') & lpdat$type %in% c('gdp_ppp_over_k_hours_worked', 'gdp_over_pop'), ], 
             aes(col=country))+facet_grid(type~.)+
-  ggtitle('GDP, 2012-2022, % growth compared to US, cumulative')+ylab('')+xlab('')
+  ggtitle('GDP, 2012-2023, % growth compared to US, cumulative')+ylab('')+xlab('')
 
 
 # 5. Generate decomposition: -----------------------------------
 wdi_dat <- read_csv('output-data/gdp_over_hours_worked.csv')
-pdat <- wdi_dat[wdi_dat$year == 2022, ]
+pdat <- wdi_dat[wdi_dat$year == 2023, ]
 
 # Intermediate step: Calculate employment rate using national accounts data (as recommended by OECD, to maintain consistency with hours worked per employed)
 pdat$employment_rate_consistent <- pdat$employed/(pdat$working_age_pop_pct*pdat$pop) 

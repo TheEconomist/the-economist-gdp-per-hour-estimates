@@ -63,13 +63,16 @@ wdi_dat <- merge(wdi_dat, hours[, c('iso3c', 'year', 'total_hours', 'hours_per_e
 wdi_dat <- wdi_dat[!is.na(wdi_dat$year), ]
 
 # Carry forward total hours and hours worked if missing for recent years, skipping 2020 as abnormal year: 
-# (This affects Russia and South Africa)
+# (Beyond 2023, this affects Russia and South Africa)
 for(i in unique(wdi_dat$iso3c[!is.na(wdi_dat$hours_worked)])){
   if(is.na(wdi_dat$hours_worked[wdi_dat$iso3c == i & wdi_dat$year == 2021 & !is.na(wdi_dat$iso3c)])){
     wdi_dat$hours_worked[wdi_dat$iso3c == i & wdi_dat$year == 2021 & !is.na(wdi_dat$iso3c)] <- wdi_dat$hours_worked[wdi_dat$iso3c == i & wdi_dat$year == 2019 & !is.na(wdi_dat$iso3c)]
   }
   if(is.na(wdi_dat$hours_worked[wdi_dat$iso3c == i & wdi_dat$year == 2022 & !is.na(wdi_dat$iso3c)])){
     wdi_dat$hours_worked[wdi_dat$iso3c == i & wdi_dat$year == 2022 & !is.na(wdi_dat$iso3c)] <- wdi_dat$hours_worked[wdi_dat$iso3c == i & wdi_dat$year == 2021 & !is.na(wdi_dat$iso3c)]
+  }
+  if(is.na(wdi_dat$hours_worked[wdi_dat$iso3c == i & wdi_dat$year == 2023 & !is.na(wdi_dat$iso3c)])){
+    wdi_dat$hours_worked[wdi_dat$iso3c == i & wdi_dat$year == 2023 & !is.na(wdi_dat$iso3c)] <- wdi_dat$hours_worked[wdi_dat$iso3c == i & wdi_dat$year == 2022 & !is.na(wdi_dat$iso3c)]
   }
 }
 
@@ -79,6 +82,9 @@ for(i in na.omit(unique(wdi_dat$iso3c[!is.na(wdi_dat$total_hours)]))){
   }
   if(is.na(wdi_dat$total_hours[wdi_dat$iso3c == i & wdi_dat$year == 2022 & !is.na(wdi_dat$iso3c)])){
     wdi_dat$total_hours[wdi_dat$iso3c == i & wdi_dat$year == 2022 & !is.na(wdi_dat$iso3c)] <- wdi_dat$total_hours[wdi_dat$iso3c == i & wdi_dat$year == 2021 & !is.na(wdi_dat$iso3c)]
+  }
+  if(is.na(wdi_dat$total_hours[wdi_dat$iso3c == i & wdi_dat$year == 2023 & !is.na(wdi_dat$iso3c)])){
+    wdi_dat$total_hours[wdi_dat$iso3c == i & wdi_dat$year == 2023 & !is.na(wdi_dat$iso3c)] <- wdi_dat$total_hours[wdi_dat$iso3c == i & wdi_dat$year == 2022 & !is.na(wdi_dat$iso3c)]
   }
 }
 
@@ -97,19 +103,5 @@ wdi_dat$gdp_ppp_over_pop_c <- wdi_dat$gdp_ppp_c/wdi_dat$pop
 wdi_dat$gdp_over_pop_c <- wdi_dat$gdp_c/wdi_dat$pop
 wdi_dat$gdp_ppp_over_k_hours_worked_c <- 1000*wdi_dat$gdp_ppp_c/wdi_dat$total_hours
 
-
-
-
 # Export to file
 write_csv(wdi_dat, 'output-data/gdp_over_hours_worked.csv')
-
-
-
-
-
-
-
-
-# FIDSIADOPJSAGHO:SDADFASDA
-
-
