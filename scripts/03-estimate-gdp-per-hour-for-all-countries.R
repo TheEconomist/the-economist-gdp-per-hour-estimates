@@ -23,6 +23,21 @@ wdi_dat <- read_csv('output-data/gdp_over_hours_worked.csv')
 wdi_dat$continent <- countrycode(wdi_dat$iso3c, 'iso3c', 'continent')
 wdi_dat$region <- countrycode(wdi_dat$iso3c, 'iso3c', 'region')
 
+# Exclude dependencies (non-UN countries) with less than 0.5m population
+un_countries <- countrycode::codelist %>%
+  filter(!is.na(iso3c), !is.na(un.name.en)) %>%
+  pull(iso3c)
+wdi_dat <- wdi_dat[!(wdi_dat$country %in% 
+                     unique(wdi_dat$country[wdi_dat$iso3c %in% 
+                                              setdiff(wdi_dat$iso3c, un_countries) & 
+                                              wdi_dat$pop < 500000 & wdi_dat$year == 2023])), ] 
+# These are:
+# [1] "Aruba"                     "American Samoa"            "Bermuda"                   "Channel Islands"          
+# [5] "Curacao"                   "Cayman Islands"            "Faroe Islands"             "Gibraltar"                
+# [9] "Greenland"                 "Guam"                      "Isle of Man"               "St. Martin (French part)" 
+# [13] "Northern Mariana Islands"  "New Caledonia"             "French Polynesia"          "Sint Maarten (Dutch part)"
+# [17] "Turks and Caicos Islands"  "British Virgin Islands"    "Virgin Islands (U.S.)" 
+
 # Source: https://www.rug.nl/ggdc/productivity/pwt/
 penn <- read_xlsx('source-data/pwt1001.xlsx', skip = 0, sheet = 3)
 
@@ -240,6 +255,10 @@ for(i in NA_impute_vars){
   dat[dat[, paste0(i, '_is_NA')] == 1, i] <- NA
   dat[, paste0(i, '_is_NA')] <- NULL
 }
+
+# Check for missing data:
+# missing_data_isos <- dat$iso3c[is.na(dat$gdp) & dat$year == max(dat$year)]
+# View(dat[dat$iso3c %in% missing_data_isos & dat$year >= max(dat$year-1), ])
 
 # Save:
 dat$gdp_ppp_over_pop_adjusted_for_hours <- dat$gdp_ppp_over_pop*dat$hours_worked_adjustment
