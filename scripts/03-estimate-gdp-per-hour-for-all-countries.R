@@ -8,15 +8,22 @@ library(countrycode)
 
 # Get extra WDI data:
 library(WDI)
-wdi_extra <- WDI(country = c('all'),
-                 indicator = c('pop_0_to_14' = 'SP.POP.0014.TO.ZS',
-                               'pop_15_to_64' = 'SP.POP.1564.TO',
-                               'labor_force_partic_ILO_female' = 'SL.TLF.CACT.FE.ZS',
-                               'labor_force_partic_ILO' = 'SL.TLF.CACT.ZS',
-                               'pop_percent_male' = 'SP.POP.TOTL.MA.ZS'),
-                 start = 2012)
-wdi_extra <- wdi_extra[, c('iso3c', 'year', 'pop_0_to_14', 'pop_15_to_64', 'labor_force_partic_ILO',
-                           'labor_force_partic_ILO_female', 'pop_percent_male')]
+use_wdi_extra_cache <- T
+if(!use_wdi_extra_cache){
+  wdi_extra <- WDI(country = c('all'),
+                   indicator = c('pop_wdi' = 'SP.POP.TOTL', 
+                                 'pop_0_to_14' = 'SP.POP.0014.TO.ZS',
+                                 'pop_15_to_64' = 'SP.POP.1564.TO',
+                                 'labor_force_partic_ILO_female' = 'SL.TLF.CACT.FE.ZS',
+                                 'labor_force_partic_ILO' = 'SL.TLF.CACT.ZS',
+                                 'pop_percent_male' = 'SP.POP.TOTL.MA.ZS'),
+                   start = 2012)
+  wdi_extra <- wdi_extra[, c('iso3c', 'year', 'pop_wdi', 'pop_0_to_14', 'pop_15_to_64', 'labor_force_partic_ILO',
+                             'labor_force_partic_ILO_female', 'pop_percent_male')]
+  write_csv(wdi_extra, 'source-data/wdi_extra_cache.csv')} else {
+  wdi_extra <- read_csv('source-data/wdi_extra_cache.csv')
+}
+
 
 # Load base data:
 wdi_dat <- read_csv('output-data/gdp_over_hours_worked.csv')
@@ -38,6 +45,31 @@ wdi_dat <- wdi_dat[!(wdi_dat$country %in%
 # [13] "Northern Mariana Islands"  "New Caledonia"             "French Polynesia"          "Sint Maarten (Dutch part)"
 # [17] "Turks and Caicos Islands"  "British Virgin Islands"    "Virgin Islands (U.S.)" 
 
+# Also exclude non-countries
+non_countries <- c(
+  "Africa Eastern and Southern", "Africa Western and Central", "Arab World", 
+  "Central Europe and the Baltics", "Caribbean small states", "East Asia & Pacific (excluding high income)", 
+  "Early-demographic dividend", "East Asia & Pacific", "Europe & Central Asia (excluding high income)", 
+  "Europe & Central Asia", "Euro area",
+  "Fragile and conflict affected situations", "Heavily indebted poor countries (HIPC)", 
+  "IBRD only", "IDA & IBRD total", "IDA total", "IDA blend", 
+  "IDA only", "Latin America & Caribbean (excluding high income)", 
+  "Latin America & Caribbean", "Least developed countries: UN classification", 
+  "Low & middle income", "Late-demographic dividend", "Middle East & North Africa", 
+  "Middle income", "Middle East & North Africa (excluding high income)", 
+  "North America", "OECD members", "Other small states", 
+  "Pre-demographic dividend", "Pacific island small states", "Post-demographic dividend", 
+  "South Asia", "Sub-Saharan Africa (excluding high income)", 
+  "Sub-Saharan Africa", "Small states", "East Asia & Pacific (IDA & IBRD countries)", 
+  "Europe & Central Asia (IDA & IBRD countries)", 
+  "Latin America & the Caribbean (IDA & IBRD countries)", 
+  "Middle East & North Africa (IDA & IBRD countries)", "South Asia (IDA & IBRD)", 
+  "Sub-Saharan Africa (IDA & IBRD countries)", "World", 
+  "Upper middle income", "High income", "Lower middle income", 
+  "Low income", "Not classified"
+)
+wdi_dat <- wdi_dat[!wdi_dat$country %in% non_countries, ]
+
 # Source: https://www.rug.nl/ggdc/productivity/pwt/
 penn <- read_xlsx('source-data/pwt1001.xlsx', skip = 0, sheet = 3)
 
@@ -48,14 +80,12 @@ oil$iso3c <- oil$Code
 oil$oil <- oil$`Oil proved reserves - BBL`
 
 # Assume oil reserves in 2021-2023 = those in 2020
+for(i in 2021:2023){
 temp <- oil[oil$year == 2020, ]
-temp$year <- 2021
+temp$year <- i
 oil <- rbind(oil, temp)
-temp$year <- 2022
-oil <- rbind(oil, temp)
-temp$year <- 2023
-oil <- rbind(oil, temp)
-oil <- oil[, c('year', 'iso3c', 'oil')]
+}
+oil <- unique(oil[, c('year', 'iso3c', 'oil')])
 
 # Step 2: Merge data ------------------------------------
 penn$penn_employment <- penn$emp
@@ -71,6 +101,10 @@ dat <- merge(wdi_dat, penn, by = c('year', 'iso3c'), all = T)
 dat <- merge(dat, wdi_extra, by = c('year', 'iso3c'), all.x = T)
 dat <- merge(dat, oil, by = c('year', 'iso3c'), all.x = T)
 dat <- dat[!is.na(dat$iso3c), ]
+
+# Fix to missing population estimates
+dat$pop[is.na(dat$pop)] <- dat$pop_wdi[is.na(dat$pop)] 
+dat$pop[is.na(dat$pop)] <- 1000*dat$penn_pop[is.na(dat$pop)]
 dat$pop_15_to_64 <- dat$pop_15_to_64 / dat$pop
 
 dat$oil <- dat$oil / dat$pop
@@ -270,4 +304,8 @@ write_csv(dat[dat$year == 2023 & !dat$is_grouping, c('year', 'country', 'iso3c',
 
 write_csv(na.omit(dat[dat$year == 2023 & dat$country != 'Ireland' & !dat$is_grouping, c('year', 'country', 'iso3c', 'pop', 'gdp_over_pop', 'gdp_ppp_over_pop', 'gdp_ppp_over_population_15_to_65', 'gdp_ppp_over_pop_adjusted_for_hours')]), 
           "output-data/the_economist_rich_list_2023.csv")
+
+# Plotting this data over time:
+dat_long <- pivot_longer(dat, cols = c('gdp_over_pop', 'gdp_ppp_over_pop', 'gdp_ppp_over_pop_adjusted_for_hours'))  
+ggplot(dat_long[dat_long$year >= 2015 & dat_long$iso3c %in% dat$iso3c[dat$gdp_over_pop >= 50000 & dat$pop >= 1000000], ], aes(x=year, y=value, col=country))+geom_line()+facet_grid(.~name)+xlab('')+ylab('')
 

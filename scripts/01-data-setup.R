@@ -31,9 +31,9 @@ if(!use_cache){
   missing_gdp <- data.frame(country = missing_gdp_countries,
                             gdp_growth = c(NA, # Afghanistan
                                            NA, # American Samoa
-                                           5.3, # Aruba
+                                           1.053, # Aruba
                                            NA, # Bermuda
-                                           4.6, # Bhutan
+                                           1.046, # Bhutan
                                            NA, # Cayman Islands
                                            NA, # Channel Islands
                                            NA, # Curacao
@@ -43,8 +43,8 @@ if(!use_cache){
                                            NA, # Liechtenstein
                                            NA, # Monaco
                                            NA, # New Caledonia
-                                           1.6, # Qatar
-                                           2.6 # Tonga
+                                           1.016, # Qatar
+                                           1.026 # Tonga
                                            ))
   
   for(i in missing_gdp$country){
