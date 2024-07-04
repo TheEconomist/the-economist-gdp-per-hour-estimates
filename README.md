@@ -1,4 +1,4 @@
-# GDP: Per capita, per capita PPP, and per hour worked
+# GDP: Per capita, per capita PPP and per hour worked
 
 This repo contains the data and code of our analysis of GDP and productivity. The resulting article can be found [here.](https://www.economist.com/graphic-detail/2023/10/04/productivity-has-grown-faster-in-western-europe-than-in-america) To replicate the analysis, please run ['scripts/01-data-setup.R'](scripts/01-data-setup.R) and ['scripts/02-charts.R'](scripts/02-charts.R) in that order. 
 
