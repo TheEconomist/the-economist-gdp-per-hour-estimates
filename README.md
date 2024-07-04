@@ -27,7 +27,7 @@ This work shows the latest data available, which at the time of publication, wer
 For Aruba, Bhutan, Qatar and Tonga, we used 2022 GDP values from the World Bank coupled with 2023 growth estimates from the IMF, as World Bank values for 2023 were missing.
 
 ## Data sources
-[OECD](https://data.oecd.org/), [World Bank](https://data.worldbank.org/), [UN](https://population.un.org/dataportal/), [Penn World Table](https://www.rug.nl/ggdc/productivity/pwt/?lang=en), [IMF]([https:](https://www.imf.org/external/datamapper/NGDP_RPCH@WEO/PER))
+[OECD](https://data.oecd.org/), [World Bank](https://data.worldbank.org/), [UN](https://population.un.org/dataportal/), [Penn World Table](https://www.rug.nl/ggdc/productivity/pwt/?lang=en), [IMF](https://www.imf.org/external/datamapper/NGDP_RPCH@WEO/PER)
 
 ## Suggested citation
 The Economist and Solstad, Sondre (corresponding author), 2023. "All work and no play", The Economist, October 4th issue, 2023.
