@@ -302,10 +302,16 @@ write_csv(dat, "output-data/gdp_over_hours_worked_with_estimated_hours_worked.cs
 write_csv(dat[dat$year == 2023 & !dat$is_grouping, c('year', 'country', 'iso3c', 'pop', 'gdp_over_pop', 'gdp_ppp_over_pop', 'gdp_ppp_over_population_15_to_65', 'gdp_ppp_over_pop_adjusted_for_hours', 'estimated_using_past_value', "estimated_using_model")], 
           "output-data/gdp_2023_for_interactive.csv")
 
-write_csv(na.omit(dat[dat$year == 2023 & dat$country != 'Ireland' & !dat$is_grouping, c('year', 'country', 'iso3c', 'pop', 'gdp_over_pop', 'gdp_ppp_over_pop', 'gdp_ppp_over_population_15_to_65', 'gdp_ppp_over_pop_adjusted_for_hours')]), 
-          "output-data/the_economist_rich_list_2023.csv")
+# Add ranks:
+dat <- na.omit(dat[dat$year == 2023 & dat$country != 'Ireland' & !dat$is_grouping, c('year', 'country', 'iso3c', 'pop', 'gdp_over_pop', 'gdp_ppp_over_pop', 'gdp_ppp_over_population_15_to_65', 'gdp_ppp_over_pop_adjusted_for_hours')])
 
-# Plotting this data over time:
-dat_long <- pivot_longer(dat, cols = c('gdp_over_pop', 'gdp_ppp_over_pop', 'gdp_ppp_over_pop_adjusted_for_hours'))  
-ggplot(dat_long[dat_long$year >= 2015 & dat_long$iso3c %in% dat$iso3c[dat$gdp_over_pop >= 50000 & dat$pop >= 1000000], ], aes(x=year, y=value, col=country))+geom_line()+facet_grid(.~name)+xlab('')+ylab('')
+# Add rank columns
+dat$gdp_over_pop_rank <- rank(-dat$gdp_over_pop, ties.method = "min")
+dat$gdp_ppp_over_pop_rank <- rank(-dat$gdp_ppp_over_pop, ties.method = "min")
+dat$gdp_ppp_over_population_15_to_65_rank <- rank(-dat$gdp_ppp_over_population_15_to_65, ties.method = "min")
+dat$gdp_ppp_over_pop_adjusted_for_hours_rank <- rank(-dat$gdp_ppp_over_pop_adjusted_for_hours, ties.method = "min")
+dat$source <- "The Economist"
+
+write_csv(dat, 
+          "output-data/the_economist_richest_countries_2024.csv")
 
