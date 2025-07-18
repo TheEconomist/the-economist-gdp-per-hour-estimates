@@ -1,6 +1,6 @@
 # GDP: Per capita, per capita PPP and per hour worked
 
-This repo contains the data and code of our analysis of GDP and productivity. The resulting article can be found [here.](https://www.economist.com/graphic-detail/2023/10/04/productivity-has-grown-faster-in-western-europe-than-in-america) To replicate the analysis, please run ['scripts/01-data-setup.R'](scripts/01-data-setup.R) and ['scripts/02-charts.R'](scripts/02-charts.R) in that order. 
+This repo contains the data and code of _The Economist's_ annual ranking of the world's richest countries. The resulting article can be found [here.](https://www.economist.com/graphic-detail/2023/10/04/productivity-has-grown-faster-in-western-europe-than-in-america) To replicate the analysis, please run ['scripts/01-data-setup.R'](scripts/01-data-setup.R) and ['scripts/02-charts.R'](scripts/02-charts.R) in that order. 
 
 It also contains the data and code behind our ranking of the world's richest countries, which can be found [here](https://www.economist.com/graphic-detail/2023/12/15/the-worlds-richest-countries-in-2023) and [here](https://www.economist.com/graphic-detail/2023/12/15/the-worlds-richest-countries-in-2024). To replicate this analysis, please run the two aforementioned scripts, then ['scripts/03-estimate-gdp-per-hour-for-all-countries.R'](scripts/03-estimate-gdp-per-hour-for-all-countries.R). 
 
