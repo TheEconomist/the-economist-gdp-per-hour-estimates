@@ -13,7 +13,7 @@ The relevant OECD data was not available for all countries. When missing, we fir
 
 If no such data was available from either source, we estimated it. We here relied on gradient-boosted trees as our modelling approach, and used data on countries' demography and economics (including known oil reserves) to train our models. These estimates are uncertain, especially for poor countries. While our method held up reasonably well in cross-validation, that exercise is limited by less data from the very poorest countries. These could be systematically off, and should be approached with care. This would however not greatly affect their rankings. 
 
-GDP PPP per hour worked was then calculated by dividing countries' total GDP PPP by their hours worked. GDP adjusted for hours worked (and costs) were calculated by adjusting GDP PPP in a given country by the ratio of their estimated hours worked per person to the average for the world as a whole (i.e. mean of all countries, weighted by population). 
+GDP PPP per hour worked was then calculated by dividing countries' total GDP PPP by their hours worked. GDP adjusted for hours worked (and costs) was calculated by adjusting GDP PPP in a given country by the ratio of their estimated hours worked per person to the average for the world as a whole (i.e. mean of all countries, weighted by population). 
 
 Those interested can replicate and inspect our calibration plots, other tests, and view all the code [here](https://github.com/TheEconomist/the-economist-gdp-per-hour-estimates/blob/main/output-data/gdp_over_hours_worked_with_estimated_hours_worked.csv).
 
