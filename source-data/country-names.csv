@@ -1,0 +1,262 @@
+Name,ISOA3,ISOA2,Continent,Region,Region World Bank,Income group WB (2024),Economy IMF,Religion,EU,Euro,G7,G20,BRIC,OECD,NATO,Commonwealth,African Union,Arab league,Organisation of Islamic Cooperation,ASEAN,OPEC,MERCOSUR,Dominion of,Notes,Defacto country,UN Member States
+Afghanistan,AFG,AF,Asia,Asia,South Asia,Low income,Low-income developing,Muslim,,,,,,,,,,,OIC,,,,,,TRUE,UN
+Albania,ALB,AL,Europe,Europe,Europe & Central Asia,Upper middle income,Emerging,Muslim,,,,,,,NATO,,,,OIC,,,,,,TRUE,UN
+Algeria,DZA,DZ,Africa,North Africa,Middle East & North Africa,Upper middle income,Emerging,Muslim,,,,,,,,,AU,Arab League,OIC,,OPEC,,,,TRUE,UN
+Andorra,AND,AD,Europe,Europe,Europe & Central Asia,High income,Advanced,Christian,,,,,,,,,,,,,,,,,TRUE,UN
+Angola,AGO,AO,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Lower middle income,Emerging,Christian,,,,,,,,,AU,,,,,,,,TRUE,UN
+Antigua and Barbuda,ATG,AG,Central America,Central America,Latin America & Caribbean,High income,Emerging,Christian,,,,,,,,Commonwealth,,,,,,,,,TRUE,UN
+Argentina,ARG,AR,South America,South America,Latin America & Caribbean,Upper middle income,Emerging,Christian,,,,G20,,,,,,,,,,MERCOSUR,,,TRUE,UN
+Armenia,ARM,AM,Asia,Asia,Europe & Central Asia,Upper middle income,Emerging,Christian,,,,,,,,,,,,,,,,,TRUE,UN
+Australia,AUS,AU,Oceania,Oceania,East Asia & Pacific,High income,Advanced,Christian,,,,G20,,OECD,,Commonwealth,,,,,,,,,TRUE,UN
+Austria,AUT,AT,Europe,Europe,Europe & Central Asia,High income,Advanced,Christian,EU,Euro,,,,OECD,,,,,,,,,,,TRUE,UN
+Azerbaijan,AZE,AZ,Asia,Asia,Europe & Central Asia,Upper middle income,Emerging,Muslim,,,,,,,,,,,OIC,,,,,,TRUE,UN
+"Bahamas, The",BHS,BS,Central America,Central America,Latin America & Caribbean,High income,Emerging,Christian,,,,,,,,Commonwealth,,,,,,,,,TRUE,UN
+Bahrain,BHR,BH,Asia,Middle East,Middle East & North Africa,High income,Emerging,Muslim,,,,,,,,,,Arab League,OIC,,,,,,TRUE,UN
+Bangladesh,BGD,BD,Asia,Asia,South Asia,Lower middle income,Low-income developing,Muslim,,,,,,,,Commonwealth,,,OIC,,,,,,TRUE,UN
+Barbados,BRB,BB,Central America,Central America,Latin America & Caribbean,High income,Emerging,Christian,,,,,,,,Commonwealth,,,,,,,,,TRUE,UN
+Belarus,BLR,BY,Europe,Europe,Europe & Central Asia,Upper middle income,Emerging,Christian,,,,,,,,,,,,,,,,,TRUE,UN
+Belgium,BEL,BE,Europe,Europe,Europe & Central Asia,High income,Advanced,Christian,EU,Euro,,,,OECD,NATO,,,,,,,,,,TRUE,UN
+Belize,BLZ,BZ,Central America,Central America,Latin America & Caribbean,Upper middle income,Emerging,Christian,,,,,,,,Commonwealth,,,,,,,,,TRUE,UN
+Benin,BEN,BJ,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Lower middle income,Low-income developing,Christian,,,,,,,,,AU,,OIC,,,,,,TRUE,UN
+Bhutan,BTN,BT,Asia,Asia,South Asia,Lower middle income,Low-income developing,Buddhist,,,,,,,,,,,,,,,,,TRUE,UN
+Bolivia,BOL,BO,South America,South America,Latin America & Caribbean,Lower middle income,Emerging,Christian,,,,,,,,,,,,,,MERCOSUR,,,TRUE,UN
+Bosnia-Herzegovina,BIH,BA,Europe,Europe,Europe & Central Asia,Upper middle income,Emerging,Christian,,,,,,,,,,,,,,,,,TRUE,UN
+Botswana,BWA,BW,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Upper middle income,Emerging,Christian,,,,,,,,Commonwealth,AU,,,,,,,,TRUE,UN
+Brazil,BRA,BR,South America,South America,Latin America & Caribbean,Upper middle income,Emerging,Christian,,,,G20,BRIC,,,,,,,,,MERCOSUR,,,TRUE,UN
+Britain,GBR,GB,Europe,Europe,Europe & Central Asia,High income,Advanced,Christian,,,G7,G20,,OECD,NATO,Commonwealth,,,,,,,,,TRUE,UN
+Brunei,BRN,BN,Asia,Asia,East Asia & Pacific,High income,Emerging,Muslim,,,,,,,,Commonwealth,,,OIC,ASEAN,,,,,TRUE,UN
+Bulgaria,BGR,BG,Europe,Europe,Europe & Central Asia,High income,Emerging,Christian,EU,,,,,,NATO,,,,,,,,,,TRUE,UN
+Burkina Faso,BFA,BF,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Low income,Low-income developing,Muslim,,,,,,,,,AU,,OIC,,,,,,TRUE,UN
+Burundi,BDI,BI,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Low income,Low-income developing,Christian,,,,,,,,,AU,,,,,,,,TRUE,UN
+Cambodia,KHM,KH,Asia,Asia,East Asia & Pacific,Lower middle income,Low-income developing,Buddhist,,,,,,,,,,,,ASEAN,,,,,TRUE,UN
+Cameroon,CMR,CM,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Lower middle income,Low-income developing,Christian,,,,,,,,Commonwealth,AU,,OIC,,,,,,TRUE,UN
+Canada,CAN,CA,North America,North America,North America,High income,Advanced,Christian,,,G7,G20,,OECD,NATO,Commonwealth,,,,,,,,,TRUE,UN
+Cape Verde,CPV,CV,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Lower middle income,Emerging,Christian,,,,,,,,,AU,,,,,,,,TRUE,UN
+Central African Republic,CAF,CF,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Low income,Low-income developing,Christian,,,,,,,,,AU,,,,,,,,TRUE,UN
+Chad,TCD,TD,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Low income,Low-income developing,Muslim,,,,,,,,,AU,,OIC,,,,,,TRUE,UN
+Chile,CHL,CL,South America,South America,Latin America & Caribbean,High income,Emerging,Christian,,,,,,OECD,,,,,,,,,,,TRUE,UN
+China,CHN,CN,Asia,Asia,East Asia & Pacific,Upper middle income,Emerging,Unaffiliated,,,,G20,BRIC,,,,,,,,,,,,TRUE,UN
+Colombia,COL,CO,South America,South America,Latin America & Caribbean,Upper middle income,Emerging,Christian,,,,,,OECD,,,,,,,,,,,TRUE,UN
+Comoros,COM,KM,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Lower middle income,Low-income developing,Muslim,,,,,,,,,AU,Arab League,OIC,,,,,,TRUE,UN
+Congo-Brazzaville,COG,CG,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Lower middle income,Low-income developing,Christian,,,,,,,,,AU,,,,OPEC,,,,TRUE,UN
+"Congo, Dem. Rep.",COD,CD,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Low income,Low-income developing,Christian,,,,,,,,,AU,,,,,,,,TRUE,UN
+Costa Rica,CRI,CR,Central America,Central America,Latin America & Caribbean,Upper middle income,Emerging,Christian,,,,,,OECD,,,,,,,,,,,TRUE,UN
+Croatia,HRV,HR,Europe,Europe,Europe & Central Asia,High income,Advanced,Christian,EU,Euro,,,,,NATO,,,,,,,,,,TRUE,UN
+Cuba,CUB,CU,Central America,Central America,Latin America & Caribbean,Upper middle income,,Christian,,,,,,,,,,,,,,,,,TRUE,UN
+Cyprus,CYP,CY,Europe,Europe,Europe & Central Asia,High income,Advanced,Christian,EU,Euro,,,,,,Commonwealth,,,,,,,,,TRUE,UN
+Czech Republic,CZE,CZ,Europe,Europe,Europe & Central Asia,High income,Advanced,Unaffiliated,EU,,,,,OECD,NATO,,,,,,,,,,TRUE,UN
+Denmark,DNK,DK,Europe,Europe,Europe & Central Asia,High income,Advanced,Christian,EU,,,,,OECD,NATO,,,,,,,,,,TRUE,UN
+Djibouti,DJI,DJ,Africa,Sub-Saharan Africa,Middle East & North Africa,Lower middle income,Low-income developing,Muslim,,,,,,,,,AU,Arab League,OIC,,,,,,TRUE,UN
+Dominica,DMA,DM,Central America,Central America,Latin America & Caribbean,Upper middle income,Emerging,Christian,,,,,,,,Commonwealth,,,,,,,,,TRUE,UN
+Dominican Republic,DOM,DO,Central America,Central America,Latin America & Caribbean,Upper middle income,Emerging,Christian,,,,,,,,,,,,,,,,,TRUE,UN
+Ecuador,ECU,EC,South America,South America,Latin America & Caribbean,Upper middle income,Emerging,Christian,,,,,,,,,,,,,,,,,TRUE,UN
+Egypt,EGY,EG,Africa,North Africa,Middle East & North Africa,Lower middle income,Emerging,Muslim,,,,,,,,,AU,Arab League,OIC,,,,,,TRUE,UN
+El Salvador,SLV,SV,Central America,Central America,Latin America & Caribbean,Upper middle income,Emerging,Christian,,,,,,,,,,,,,,,,,TRUE,UN
+Equatorial Guinea,GNQ,GQ,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Upper middle income,Emerging,Christian,,,,,,,,,AU,,,,OPEC,,,,TRUE,UN
+Eritrea,ERI,ER,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Low income,Low-income developing,Christian,,,,,,,,,AU,,,,,,,,TRUE,UN
+Estonia,EST,EE,Europe,Europe,Europe & Central Asia,High income,Advanced,Unaffiliated,EU,Euro,,,,OECD,NATO,,,,,,,,,,TRUE,UN
+Eswatini,SWZ,SZ,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Lower middle income,Emerging,Christian,,,,,,,,Commonwealth,AU,,,,,,,,TRUE,UN
+Ethiopia,ETH,ET,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Low income,Low-income developing,Christian,,,,,,,,,AU,,,,,,,,TRUE,UN
+Fiji,FJI,FJ,Oceania,Oceania,East Asia & Pacific,Upper middle income,Emerging,Christian,,,,,,,,Commonwealth,,,,,,,,,TRUE,UN
+Finland,FIN,FI,Europe,Europe,Europe & Central Asia,High income,Advanced,Christian,EU,Euro,,,,OECD,NATO,,,,,,,,,,TRUE,UN
+France,FRA,FR,Europe,Europe,Europe & Central Asia,High income,Advanced,Christian,EU,Euro,G7,G20,,OECD,NATO,,,,,,,,,,TRUE,UN
+Gabon,GAB,GA,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Upper middle income,Emerging,Christian,,,,,,,,Commonwealth,AU,,OIC,,OPEC,,,,TRUE,UN
+Georgia,GEO,GE,Asia,Asia,Europe & Central Asia,Upper middle income,Emerging,Christian,,,,,,,,,,,,,,,,,TRUE,UN
+Germany,DEU,DE,Europe,Europe,Europe & Central Asia,High income,Advanced,Christian,EU,Euro,G7,G20,,OECD,NATO,,,,,,,,,,TRUE,UN
+Ghana,GHA,GH,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Lower middle income,Low-income developing,Christian,,,,,,,,Commonwealth,AU,,,,,,,,TRUE,UN
+Greece,GRC,GR,Europe,Europe,Europe & Central Asia,High income,Advanced,Christian,EU,Euro,,,,OECD,NATO,,,,,,,,,,TRUE,UN
+Grenada,GRD,GD,Central America,Central America,Latin America & Caribbean,Upper middle income,Emerging,Christian,,,,,,,,Commonwealth,,,,,,,,,TRUE,UN
+Guatemala,GTM,GT,Central America,Central America,Latin America & Caribbean,Upper middle income,Emerging,Christian,,,,,,,,,,,,,,,,,TRUE,UN
+Guinea,GIN,GN,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Lower middle income,Low-income developing,Muslim,,,,,,,,,AU,,OIC,,,,,,TRUE,UN
+Guinea-Bissau,GNB,GW,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Low income,Low-income developing,Muslim,,,,,,,,,AU,,OIC,,,,,,TRUE,UN
+Guyana,GUY,GY,South America,South America,Latin America & Caribbean,High income,Emerging,Christian,,,,,,,,Commonwealth,,,OIC,,,MERCOSUR,,,TRUE,UN
+Haiti,HTI,HT,Central America,Central America,Latin America & Caribbean,Lower middle income,Low-income developing,Christian,,,,,,,,,,,,,,,,,TRUE,UN
+Honduras,HND,HN,Central America,Central America,Latin America & Caribbean,Lower middle income,Low-income developing,Christian,,,,,,,,,,,,,,,,,TRUE,UN
+Hungary,HUN,HU,Europe,Europe,Europe & Central Asia,High income,Emerging,Christian,EU,,,,,OECD,NATO,,,,,,,,,,TRUE,UN
+Iceland,ISL,IS,Europe,Europe,Europe & Central Asia,High income,Advanced,Christian,,,,,,OECD,NATO,,,,,,,,,,TRUE,UN
+India,IND,IN,Asia,Asia,South Asia,Lower middle income,Emerging,Hindu,,,,G20,BRIC,,,Commonwealth,,,,,,,,,TRUE,UN
+Indonesia,IDN,ID,Asia,Asia,East Asia & Pacific,Upper middle income,Emerging,Muslim,,,,G20,,,,,,,OIC,ASEAN,,,,,TRUE,UN
+Iran,IRN,IR,Asia,Middle East,Middle East & North Africa,Upper middle income,Emerging,Muslim,,,,,,,,,,,OIC,,OPEC,,,,TRUE,UN
+Iraq,IRQ,IQ,Asia,Middle East,Middle East & North Africa,Upper middle income,Emerging,Muslim,,,,,,,,,,Arab League,OIC,,OPEC,,,,TRUE,UN
+Ireland,IRL,IE,Europe,Europe,Europe & Central Asia,High income,Advanced,Christian,EU,Euro,,,,OECD,,,,,,,,,,,TRUE,UN
+Israel,ISR,IL,Asia,Middle East,Middle East & North Africa,High income,Advanced,Jewish,,,,,,OECD,,,,,,,,,,,TRUE,UN
+Italy,ITA,IT,Europe,Europe,Europe & Central Asia,High income,Advanced,Christian,EU,Euro,G7,G20,,OECD,NATO,,,,,,,,,,TRUE,UN
+Ivory Coast,CIV,CI,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Lower middle income,Low-income developing,Christian,,,,,,,,,AU,,OIC,,,,,,TRUE,UN
+Jamaica,JAM,JM,Central America,Central America,Latin America & Caribbean,Upper middle income,Emerging,Christian,,,,,,,,Commonwealth,,,,,,,,,TRUE,UN
+Japan,JPN,JP,Asia,Asia,East Asia & Pacific,High income,Advanced,Unaffiliated,,,G7,G20,,OECD,,,,,,,,,,,TRUE,UN
+Jordan,JOR,JO,Asia,Middle East,Middle East & North Africa,Lower middle income,Emerging,Muslim,,,,,,,,,,Arab League,OIC,,,,,,TRUE,UN
+Kazakhstan,KAZ,KZ,Asia,Asia,Europe & Central Asia,Upper middle income,Emerging,Muslim,,,,,,,,,,,OIC,,,,,,TRUE,UN
+Kenya,KEN,KE,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Lower middle income,Low-income developing,Christian,,,,,,,,Commonwealth,AU,,,,,,,,TRUE,UN
+Kiribati,KIR,KI,Oceania,Oceania,East Asia & Pacific,Lower middle income,Low-income developing,Christian,,,,,,,,Commonwealth,,,,,,,,,TRUE,UN
+Kosovo,KOS,XK,Europe,Europe,Europe & Central Asia,Upper middle income,Emerging,Muslim,,,,,,,,,,,,,,,,,TRUE,
+Kuwait,KWT,KW,Asia,Middle East,Middle East & North Africa,High income,Emerging,Muslim,,,,,,,,,,Arab League,OIC,,OPEC,,,,TRUE,UN
+Kyrgyzstan,KGZ,KG,Asia,Asia,Europe & Central Asia,Lower middle income,Low-income developing,Muslim,,,,,,,,,,,OIC,,,,,,TRUE,UN
+Laos,LAO,LA,Asia,Asia,East Asia & Pacific,Lower middle income,Low-income developing,Buddhist,,,,,,,,,,,,ASEAN,,,,,TRUE,UN
+Latvia,LVA,LV,Europe,Europe,Europe & Central Asia,High income,Advanced,Christian,EU,Euro,,,,OECD,NATO,,,,,,,,,,TRUE,UN
+Lebanon,LBN,LB,Asia,Middle East,Middle East & North Africa,Lower middle income,Emerging,Muslim,,,,,,,,,,Arab League,OIC,,,,,,TRUE,UN
+Lesotho,LSO,LS,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Lower middle income,Low-income developing,Christian,,,,,,,,Commonwealth,AU,,,,,,,,TRUE,UN
+Liberia,LBR,LR,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Low income,Low-income developing,Christian,,,,,,,,,AU,,,,,,,,TRUE,UN
+Libya,LBY,LY,Africa,North Africa,Middle East & North Africa,Upper middle income,Emerging,Muslim,,,,,,,,,AU,Arab League,OIC,,OPEC,,,,TRUE,UN
+Liechtenstein,LIE,LI,Europe,Europe,Europe & Central Asia,High income,,Christian,,,,,,,,,,,,,,,,,TRUE,UN
+Lithuania,LTU,LT,Europe,Europe,Europe & Central Asia,High income,Advanced,Christian,EU,Euro,,,,OECD,NATO,,,,,,,,,,TRUE,UN
+Luxembourg,LUX,LU,Europe,Europe,Europe & Central Asia,High income,Advanced,Christian,EU,Euro,,,,OECD,NATO,,,,,,,,,,TRUE,UN
+Madagascar,MDG,MG,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Low income,Low-income developing,Christian,,,,,,,,,AU,,,,,,,,TRUE,UN
+Malawi,MWI,MW,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Low income,Low-income developing,Christian,,,,,,,,Commonwealth,AU,,,,,,,,TRUE,UN
+Malaysia,MYS,MY,Asia,Asia,East Asia & Pacific,Upper middle income,Emerging,Muslim,,,,,,,,Commonwealth,,,OIC,ASEAN,,,,,TRUE,UN
+Maldives,MDV,MV,Asia,Asia,South Asia,Upper middle income,Emerging,Muslim,,,,,,,,Commonwealth,,,OIC,,,,,,TRUE,UN
+Mali,MLI,ML,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Low income,Low-income developing,Muslim,,,,,,,,,AU,,OIC,,,,,,TRUE,UN
+Malta,MLT,MT,Europe,Europe,Middle East & North Africa,High income,Advanced,Christian,EU,Euro,,,,,,Commonwealth,,,,,,,,,TRUE,UN
+Marshall Islands,MHL,MH,Oceania,Oceania,East Asia & Pacific,Upper middle income,Emerging,Christian,,,,,,,,,,,,,,,,,TRUE,UN
+Mauritania,MRT,MR,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Lower middle income,Low-income developing,Muslim,,,,,,,,,AU,Arab League,OIC,,,,,,TRUE,UN
+Mauritius,MUS,MU,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Upper middle income,Emerging,Hindu,,,,,,,,Commonwealth,AU,,,,,,,,TRUE,UN
+Mexico,MEX,MX,North America,North America,Latin America & Caribbean,Upper middle income,Emerging,Christian,,,,G20,,OECD,,,,,,,,,,,TRUE,UN
+Micronesia,FSM,FM,Oceania,Oceania,East Asia & Pacific,Lower middle income,Emerging,Christian,,,,,,,,,,,,,,,,,TRUE,UN
+Moldova,MDA,MD,Europe,Europe,Europe & Central Asia,Upper middle income,Low-income developing,Christian,,,,,,,,,,,,,,,,,TRUE,UN
+Monaco,MCO,MC,Europe,Europe,Europe & Central Asia,High income,,Christian,,,,,,,,,,,,,,,,,TRUE,UN
+Mongolia,MNG,MN,Asia,Asia,East Asia & Pacific,Upper middle income,Emerging,Buddhist,,,,,,,,,,,,,,,,,TRUE,UN
+Montenegro,MNE,ME,Europe,Europe,Europe & Central Asia,Upper middle income,Emerging,Christian,,,,,,,NATO,,,,,,,,,,TRUE,UN
+Morocco,MAR,MA,Africa,North Africa,Middle East & North Africa,Lower middle income,Emerging,Muslim,,,,,,,,,AU,Arab League,OIC,,,,,,TRUE,UN
+Mozambique,MOZ,MZ,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Low income,Low-income developing,Christian,,,,,,,,Commonwealth,AU,,OIC,,,,,,TRUE,UN
+Myanmar,MMR,MM,Asia,Asia,East Asia & Pacific,Lower middle income,Low-income developing,Buddhist,,,,,,,,,,,,ASEAN,,,,,TRUE,UN
+Namibia,NAM,NA,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Upper middle income,Emerging,Christian,,,,,,,,Commonwealth,AU,,,,,,,,TRUE,UN
+Nauru,NRU,NR,Oceania,Oceania,East Asia & Pacific,High income,Emerging,Christian,,,,,,,,Commonwealth,,,,,,,,,TRUE,UN
+Nepal,NPL,NP,Asia,Asia,South Asia,Lower middle income,Low-income developing,Hindu,,,,,,,,,,,,,,,,,TRUE,UN
+Netherlands,NLD,NL,Europe,Europe,Europe & Central Asia,High income,Advanced,Christian,EU,Euro,,,,OECD,NATO,,,,,,,,,,TRUE,UN
+New Zealand,NZL,NZ,Oceania,Oceania,East Asia & Pacific,High income,Advanced,Christian,,,,,,OECD,,Commonwealth,,,,,,,,,TRUE,UN
+Nicaragua,NIC,NI,Central America,Central America,Latin America & Caribbean,Lower middle income,Low-income developing,Christian,,,,,,,,,,,,,,,,,TRUE,UN
+Niger,NER,NE,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Low income,Low-income developing,Muslim,,,,,,,,,AU,,OIC,,,,,,TRUE,UN
+Nigeria,NGA,NG,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Lower middle income,Low-income developing,Christian,,,,,,,,Commonwealth,AU,,OIC,,OPEC,,,,TRUE,UN
+North Korea,PRK,KP,Asia,Asia,East Asia & Pacific,Low income,,Unaffiliated,,,,,,,,,,,,,,,,,TRUE,UN
+North Macedonia,MKD,MK,Europe,Europe,Europe & Central Asia,Upper middle income,Emerging,Christian,,,,,,,NATO,,,,,,,,,,TRUE,UN
+Norway,NOR,NO,Europe,Europe,Europe & Central Asia,High income,Advanced,Christian,,,,,,OECD,NATO,,,,,,,,,,TRUE,UN
+Oman,OMN,OM,Asia,Middle East,Middle East & North Africa,High income,Emerging,Muslim,,,,,,,,,,Arab League,OIC,,,,,,TRUE,UN
+Pakistan,PAK,PK,Asia,Asia,South Asia,Lower middle income,Emerging,Muslim,,,,,,,,Commonwealth,,,OIC,,,,,,TRUE,UN
+Palau,PLW,PW,Oceania,Oceania,East Asia & Pacific,High income,Emerging,Christian,,,,,,,,,,,,,,,,,TRUE,UN
+Palestinian Territories,PSE,PS,Asia,Middle East,Middle East & North Africa,Lower middle income,Emerging,Muslim,,,,,,,,,,Arab League,OIC,,,,,,TRUE,
+Panama,PAN,PA,Central America,Central America,Latin America & Caribbean,High income,Emerging,Christian,,,,,,,,,,,,,,,,,TRUE,UN
+Papua New Guinea,PNG,PG,Oceania,Oceania,East Asia & Pacific,Lower middle income,Low-income developing,Christian,,,,,,,,Commonwealth,,,,,,,,,TRUE,UN
+Paraguay,PRY,PY,South America,South America,Latin America & Caribbean,Upper middle income,Emerging,Christian,,,,,,,,,,,,,,MERCOSUR,,,TRUE,UN
+Peru,PER,PE,South America,South America,Latin America & Caribbean,Upper middle income,Emerging,Christian,,,,,,,,,,,,,,,,,TRUE,UN
+Philippines,PHL,PH,Asia,Asia,East Asia & Pacific,Lower middle income,Emerging,Christian,,,,,,,,,,,,ASEAN,,,,,TRUE,UN
+Poland,POL,PL,Europe,Europe,Europe & Central Asia,High income,Emerging,Christian,EU,,,,,OECD,NATO,,,,,,,,,,TRUE,UN
+Portugal,PRT,PT,Europe,Europe,Europe & Central Asia,High income,Advanced,Christian,EU,Euro,,,,OECD,NATO,,,,,,,,,,TRUE,UN
+Qatar,QAT,QA,Asia,Middle East,Middle East & North Africa,High income,Emerging,Muslim,,,,,,,,,,Arab League,OIC,,,,,,TRUE,UN
+Romania,ROU,RO,Europe,Europe,Europe & Central Asia,High income,Emerging,Christian,EU,,,,,,NATO,,,,,,,,,,TRUE,UN
+Russia,RUS,RU,Europe,Europe,Europe & Central Asia,High income,Emerging,Christian,,,,G20,BRIC,,,,,,,,,,,,TRUE,UN
+Rwanda,RWA,RW,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Low income,Low-income developing,Christian,,,,,,,,Commonwealth,AU,,,,,,,,TRUE,UN
+Saint Kitts and Nevis,KNA,KN,Central America,Central America,Latin America & Caribbean,High income,Emerging,Christian,,,,,,,,Commonwealth,,,,,,,,,TRUE,UN
+Saint Lucia,LCA,LC,Central America,Central America,Latin America & Caribbean,Upper middle income,Emerging,Christian,,,,,,,,Commonwealth,,,,,,,,,TRUE,UN
+Saint Vincent and the Grenadines,VCT,VC,Central America,Central America,Latin America & Caribbean,Upper middle income,Emerging,Christian,,,,,,,,Commonwealth,,,,,,,,,TRUE,UN
+Samoa,WSM,WS,Oceania,Oceania,East Asia & Pacific,Lower middle income,Emerging,Christian,,,,,,,,Commonwealth,,,,,,,,,TRUE,UN
+San Marino,SMR,SM,Europe,Europe,Europe & Central Asia,High income,Advanced,Christian,,,,,,,,,,,,,,,,,TRUE,UN
+São Tomé and Príncipe,STP,ST,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Lower middle income,Low-income developing,Christian,,,,,,,,,AU,,,,,,,,TRUE,UN
+Saudi Arabia,SAU,SA,Asia,Middle East,Middle East & North Africa,High income,Emerging,Muslim,,,,G20,,,,,,Arab League,OIC,,OPEC,,,,TRUE,UN
+Senegal,SEN,SN,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Lower middle income,Low-income developing,Muslim,,,,,,,,,AU,,OIC,,,,,,TRUE,UN
+Serbia ,SRB,RS,Europe,Europe,Europe & Central Asia,Upper middle income,Emerging,Christian,,,,,,,,,,,,,,,,,TRUE,UN
+Seychelles,SYC,SC,Africa,Sub-Saharan Africa,Sub-Saharan Africa,High income,Emerging,Christian,,,,,,,,Commonwealth,AU,,,,,,,,TRUE,UN
+Sierra Leone,SLE,SL,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Low income,Low-income developing,Muslim,,,,,,,,Commonwealth,AU,,OIC,,,,,,TRUE,UN
+Singapore,SGP,SG,Asia,Asia,East Asia & Pacific,High income,Advanced,Buddhist,,,,,,,,Commonwealth,,,,ASEAN,,,,,TRUE,UN
+Slovakia,SVK,SK,Europe,Europe,Europe & Central Asia,High income,Advanced,Christian,EU,Euro,,,,OECD,NATO,,,,,,,,,,TRUE,UN
+Slovenia,SVN,SI,Europe,Europe,Europe & Central Asia,High income,Advanced,Christian,EU,Euro,,,,OECD,NATO,,,,,,,,,,TRUE,UN
+Solomon Islands,SLB,SB,Oceania,Oceania,East Asia & Pacific,Lower middle income,Low-income developing,Christian,,,,,,,,Commonwealth,,,,,,,,,TRUE,UN
+Somalia,SOM,SO,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Low income,Low-income developing,Muslim,,,,,,,,,AU,Arab League,OIC,,,,,,TRUE,UN
+South Africa,ZAF,ZA,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Upper middle income,Emerging,Christian,,,,G20,,,,Commonwealth,AU,,,,,,,,TRUE,UN
+South Korea,KOR,KR,Asia,Asia,East Asia & Pacific,High income,Advanced,Unaffiliated,,,,G20,,OECD,,,,,,,,,,,TRUE,UN
+South Sudan,SSD,SS,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Low income,Low-income developing,Christian,,,,,,,,,AU,,,,,,,,TRUE,UN
+Spain,ESP,ES,Europe,Europe,Europe & Central Asia,High income,Advanced,Christian,EU,Euro,,,,OECD,NATO,,,,,,,,,,TRUE,UN
+Sri Lanka,LKA,LK,Asia,Asia,South Asia,Lower middle income,Emerging,Buddhist,,,,,,,,Commonwealth,,,,,,,,,TRUE,UN
+Sudan,SDN,SD,Africa,North Africa,Sub-Saharan Africa,Low income,Low-income developing,Muslim,,,,,,,,,AU,Arab League,OIC,,,,,,TRUE,UN
+Suriname,SUR,SR,South America,South America,Latin America & Caribbean,Upper middle income,Emerging,Christian,,,,,,,,,,,OIC,,,,,,TRUE,UN
+Sweden,SWE,SE,Europe,Europe,Europe & Central Asia,High income,Advanced,Christian,EU,,,,,OECD,NATO,,,,,,,,,,TRUE,UN
+Switzerland,CHE,CH,Europe,Europe,Europe & Central Asia,High income,Advanced,Christian,,,,,,OECD,,,,,,,,,,,TRUE,UN
+Syria,SYR,SY,Asia,Middle East,Middle East & North Africa,Low income,,Muslim,,,,,,,,,,Arab League,,,,,,,TRUE,UN
+Taiwan,TWN,TW,Asia,Asia,East Asia & Pacific,High income,Advanced,Folk,,,,,,,,,,,,,,,,,TRUE,
+Tajikistan,TJK,TJ,Asia,Asia,Europe & Central Asia,Lower middle income,Low-income developing,Muslim,,,,,,,,,,,OIC,,,,,,TRUE,UN
+Tanzania,TZA,TZ,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Lower middle income,Low-income developing,Christian,,,,,,,,Commonwealth,AU,,,,,,,,TRUE,UN
+Thailand,THA,TH,Asia,Asia,East Asia & Pacific,Upper middle income,Emerging,Buddhist,,,,,,,,,,,,ASEAN,,,,,TRUE,UN
+"Gambia, The",GMB,GM,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Low income,Low-income developing,Muslim,,,,,,,,Commonwealth,AU,,OIC,,,,,,TRUE,UN
+Timor-Leste,TLS,TL,Asia,Asia,East Asia & Pacific,Lower middle income,Low-income developing,Christian,,,,,,,,,,,,,,,,,TRUE,UN
+Togo,TGO,TG,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Low income,Low-income developing,Christian,,,,,,,,Commonwealth,AU,,OIC,,,,,,TRUE,UN
+Tonga,TON,TO,Oceania,Oceania,East Asia & Pacific,Upper middle income,Emerging,Christian,,,,,,,,Commonwealth,,,,,,,,,TRUE,UN
+Trinidad and Tobago,TTO,TT,Central America,Central America,Latin America & Caribbean,High income,Emerging,Christian,,,,,,,,Commonwealth,,,,,,,,,TRUE,UN
+Tunisia,TUN,TN,Africa,North Africa,Middle East & North Africa,Lower middle income,Emerging,Muslim,,,,,,,,,AU,Arab League,OIC,,,,,,TRUE,UN
+Turkey,TUR,TR,Europe,Europe,Europe & Central Asia,Upper middle income,Emerging,Muslim,,,,G20,,OECD,NATO,,,,OIC,,,,,,TRUE,UN
+Turkmenistan,TKM,TM,Asia,Asia,Europe & Central Asia,Upper middle income,Emerging,Muslim,,,,,,,,,,,OIC,,,,,,TRUE,UN
+Tuvalu,TUV,TV,Oceania,Oceania,East Asia & Pacific,Upper middle income,Emerging,Christian,,,,,,,,Commonwealth,,,,,,,,,TRUE,UN
+Uganda,UGA,UG,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Low income,Low-income developing,Christian,,,,,,,,Commonwealth,AU,,OIC,,,,,,TRUE,UN
+Ukraine,UKR,UA,Europe,Europe,Europe & Central Asia,Upper middle income,Emerging,Christian,,,,,,,,,,,,,,,,,TRUE,UN
+United Arab Emirates,ARE,AE,Asia,Middle East,Middle East & North Africa,High income,Emerging,Muslim,,,,,,,,,,Arab League,OIC,,OPEC,,,,TRUE,UN
+United States,USA,US,North America,North America,North America,High income,Advanced,Christian,,,G7,G20,,OECD,NATO,,,,,,,,,,TRUE,UN
+Uruguay,URY,UY,South America,South America,Latin America & Caribbean,High income,Emerging,Christian,,,,,,,,,,,,,,MERCOSUR,,,TRUE,UN
+Uzbekistan,UZB,UZ,Asia,Asia,Europe & Central Asia,Lower middle income,Low-income developing,Muslim,,,,,,,,,,,OIC,,,,,,TRUE,UN
+Vanuatu,VUT,VU,Oceania,Oceania,East Asia & Pacific,Lower middle income,Emerging,Christian,,,,,,,,Commonwealth,,,,,,,,,TRUE,UN
+Vatican,VAT,VA,Europe,Europe,,,,Christian,,,,,,,,,,,,,,,,,TRUE,
+Venezuela,VEN,VE,South America,South America,Latin America & Caribbean,,Emerging,Christian,,,,,,,,,,,,,OPEC,,,,TRUE,UN
+Vietnam,VNM,VN,Asia,Asia,East Asia & Pacific,Lower middle income,Emerging,Folk,,,,,,,,,,,,ASEAN,,,,,TRUE,UN
+Yemen,YEM,YE,Asia,Middle East,Middle East & North Africa,Low income,Low-income developing,Muslim,,,,,,,,,,Arab League,OIC,,,,,,TRUE,UN
+Zambia,ZMB,ZM,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Lower middle income,Low-income developing,Christian,,,,,,,,Commonwealth,AU,,,,,,,,TRUE,UN
+Zimbabwe,ZWE,ZW,Africa,Sub-Saharan Africa,Sub-Saharan Africa,Lower middle income,Low-income developing,Christian,,,,,,,,,AU,,,,,,,,TRUE,UN
+American Samoa,ASM,AS,Oceania,Oceania,East Asia & Pacific,High income,,Christian,,,,,,,,,,,,,,,US,,FALSE,
+Anguilla,AIA,AI,Central America,Central America,,,,Christian,,,,,,,,,,,,,,,UK,,FALSE,
+Antarctica,ATA,AQ,Antarctica,Antarctica,,,,na,,,,,,,,,,,,,,,,,FALSE,
+Aruba,ABW,AW,Central America,Central America,Latin America & Caribbean,High income,Emerging,Christian,,,,,,,,,,,,,,,Netherlands,,FALSE,
+Bermuda,BMU,BM,Central America,Central America,North America,High income,,Christian,,,,,,,,,,,,,,,UK,,FALSE,
+Bouvet Island,BVT,BV,Antarctica,Antarctica,,,,na,,,,,,,,,,,,,,,Norway,,FALSE,
+British Indian Ocean Territory,IOT,IO,Indian Ocean,Indian Ocean,,,,na,,,,,,,,,,,,,,,UK,,FALSE,
+"Caribbean Netherlands (Bonaire, Sint Eustatius and Saba)",BES,BQ,Central America,Central America,,,,Christian,,,,,,,,,,,,,,,Netherlands,,FALSE,
+Cayman Islands,CYM,KY,Central America,Central America,Latin America & Caribbean,High income,,Christian,,,,,,,,,,,,,,,UK,,FALSE,
+Channel Islands,CHI,,Europe,Europe,Europe & Central Asia,High income,,Christian,,,,,,,,,,,,,,,UK,,FALSE,
+Christmas Island,CXR,CX,Indian Ocean,Indian Ocean,,,,na,,,,,,,,,,,,,,,Australia,,FALSE,
+Cocos (Keeling) Islands,CCK,CC,Indian Ocean,Indian Ocean,,,,na,,,,,,,,,,,,,,,Australia,,FALSE,
+Cook Islands,COK,CK,Oceania,Oceania,,,,Christian,,,,,,,,,,,,,,,New Zealand,,FALSE,
+Curaçao,CUW,CW,Central America,Central America,Latin America & Caribbean,High income,,Christian,,,,,,,,,,,,,,,Netherlands,,FALSE,
+Falkland Islands,FLK,FK,Atlantic Ocean,Atlantic Ocean,,,,Christian,,,,,,,,,,,,,,,UK,,FALSE,
+Faroe Islands,FRO,FO,Europe,Europe,Europe & Central Asia,High income,,Christian,,,,,,,,,,,,,,,Denmark,,FALSE,
+French Guiana,GUF,GF,South America,South America,,,,Christian,,,,,,,,,,,,,,,France,,FALSE,
+French Polynesia,PYF,PF,Oceania,Oceania,East Asia & Pacific,High income,,Christian,,,,,,,,,,,,,,,France,,FALSE,
+French Southern Territories,ATF,TF,Indian Ocean,Indian Ocean,,,,na,,,,,,,,,,,,,,,France,,FALSE,
+Gibraltar,GIB,GI,Europe,Europe,Europe & Central Asia,High income,,Christian,,,,,,,,,,,,,,,UK,,FALSE,
+Greenland,GRL,GL,North America,North America,Europe & Central Asia,High income,,Christian,,,,,,,,,,,,,,,Denmark,,FALSE,
+Guadeloupe,GLP,GP,Central America,Central America,,,,Christian,,,,,,,,,,,,,,,France,,FALSE,
+Guam,GUM,GU,Oceania,Oceania,East Asia & Pacific,High income,,Christian,,,,,,,,,,,,,,,US,,FALSE,
+Guernsey,GGY,GG,Europe,Europe,,,,Christian,,,,,,,,,,,,,,,UK,,FALSE,
+Heard and McDonald Islands,HMD,HM,Indian Ocean,Indian Ocean,,,,na,,,,,,,,,,,,,,,Australia,,FALSE,
+Hong Kong,HKG,HK,Asia,Asia,East Asia & Pacific,High income,Advanced,Unaffiliated,,,,,,,,,,,,,,,China,,FALSE,
+Isle of Man,IMN,IM,Europe,Europe,Europe & Central Asia,High income,,Christian,,,,,,,,,,,,,,,UK,,FALSE,
+Jersey,JEY,JE,Europe,Europe,,,,Christian,,,,,,,,,,,,,,,UK,,FALSE,
+Macau,MAC,MO,Asia,Asia,East Asia & Pacific,High income,Advanced,Folk,,,,,,,,,,,,,,,China,,FALSE,
+Martinique,MTQ,MQ,Central America,Central America,,,,Christian,,,,,,,,,,,,,,,France,,FALSE,
+Mayotte,MYT,YT,Africa,Sub-Saharan Africa,,,,Muslim,,,,,,,,,,,,,,,France,,FALSE,
+Montserrat,MSR,MS,Central America,Central America,,,,Christian,,,,,,,,,,,,,,,UK,,FALSE,
+New Caledonia,NCL,NC,Oceania,Oceania,East Asia & Pacific,High income,,Christian,,,,,,,,,,,,,,,France,,FALSE,
+Niue,NIU,NU,Oceania,Oceania,,,,Christian,,,,,,,,,,,,,,,New Zealand,,FALSE,
+Norfolk Island,NFK,NF,Oceania,Oceania,,,,na,,,,,,,,,,,,,,,Australia,,FALSE,
+Northern Mariana Islands,MNP,MP,Oceania,Oceania,East Asia & Pacific,High income,,Christian,,,,,,,,,,,,,,,US,,FALSE,
+Pitcairn,PCN,PN,Oceania,Oceania,,,,na,,,,,,,,,,,,,,,UK,,FALSE,
+Puerto Rico,PRI,PR,Central America,Central America,Latin America & Caribbean,High income,Advanced,Christian,,,,,,,,,,,,,,,US,,FALSE,
+Réunion,REU,RE,Africa,Sub-Saharan Africa,,,,Christian,,,,,,,,,,,,,,,France,,FALSE,
+Saint-Martin,MAF,MF,Central America,Central America,Latin America & Caribbean,High income,,Christian,,,,,,,,,,,,,,,France,,FALSE,
+Sint Maarten,SXM,SX,Central America,Central America,Latin America & Caribbean,High income,,Christian,,,,,,,,,,,,,,,Netherlands,,FALSE,
+Somaliland,SLD,,Africa,Sub-Saharan Africa,,,,na,,,,,,,,,,,,,,,Somalia,Unrecog'd by UN; code made up by DH,FALSE,
+South Georgia and South S.S.,SGS,GS,Atlantic Ocean,Atlantic Ocean,,,,na,,,,,,,,,,,,,,,UK,,FALSE,
+St. Helena Ascension and Tristan da Cunha,SHN,SH,Atlantic Ocean,Atlantic Ocean,,,,Christian,,,,,,,,,,,,,,,UK,,FALSE,
+St. Pierre and Miquelon,SPM,PM,North America,North America,,,,Christian,,,,,,,,,,,,,,,France,,FALSE,
+Svalbard and Jan Mayen Islands,SJM,SJ,Europe,Europe,,,,na,,,,,,,,,,,,,,,Norway,,FALSE,
+Tokelau,TKL,TK,Oceania,Oceania,,,,Christian,,,,,,,,,,,,,,,New Zealand,,FALSE,
+Turks and Caicos Islands,TCA,TC,Central America,Central America,Latin America & Caribbean,High income,,Christian,,,,,,,,,,,,,,,UK,,FALSE,
+U.S. Minor Islands,UMI,UM,Oceania,Oceania,,,,na,,,,,,,,,,,,,,,US,,FALSE,
+Virgin Islands (British),VGB,VG,Central America,Central America,Latin America & Caribbean,High income,,Christian,,,,,,,,,,,,,,,UK,,FALSE,
+Virgin Islands (US),VIR,VI,Central America,Central America,Latin America & Caribbean,High income,,Christian,,,,,,,,,,,,,,,US,,FALSE,
+Wallis and Futuna,WLF,WF,Oceania,Oceania,,,,Christian,,,,,,,,,,,,,,,France,,FALSE,
+Western Sahara,ESH,EH,Africa,North Africa,,,,Muslim,,,,,,,,,AU,,,,,,Morocco,,FALSE,
+Saint Barthélemy,BLM,BL,Central America,Central America,,,,Christian,,,,,,,,,,,,,,,France,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,
+Economist Count = 197,,,,,,High income: 86,Emerging: 96,Christian: 166,27,20,7,19,4,38,32,56,55,22,56,10,12,6,,,197,193
+UN official total number = 193,,,,,,Upper middle income: 54,Advanced: 41,Muslim: 50,,,,,,,,,,,,,,,,,,
+"
+",,,,,,Lower middle income: 51,Low-income: 58,Unaffiliated: 7,,,,,,,,,,,,,,,,,,
+,,,,,,Low income: 26,,Hindu: 3,,,,,,,,,,,,,,,,,,
+,,,,,,,,Buddhist: 8,,,,,,,,,,,,,,,,,,
+,,,,,,Updates??,Updates??,Folk: 3,,,,,,,,,,,,,,,,,,
+,,,,,,,,Jewish: 1,,,,,,,,,,,,,,,,,,
+,,,,,,,,Not available: 13,,,,,,,,,,,,,,,,,,

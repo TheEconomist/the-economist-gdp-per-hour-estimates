@@ -22,13 +22,12 @@ GDP PPP per hour worked was then calculated by dividing countries' total GDP PPP
 Those interested can replicate and inspect our calibration plots, other tests, and view all the code [here](https://github.com/TheEconomist/the-economist-gdp-per-hour-estimates/blob/main/output-data/gdp_over_hours_worked_with_estimated_hours_worked.csv).
 
 ## Notes
-This work shows the latest data available, which at the time of publication, were estimates of 2023 values made in 2024. This means that economic change during 2024 are not captured in the data. Our data also only shows country averages, and does not consider the distribution of income within countries. In some countries high savings rates or other factors may make GDP estimates less reliable as a guide to living standards. Finally, we rely on GDP estimates which are themselves uncertain, and, research suggests, may be especially unreliable for authoritarian countries.  
+This work shows the latest data available, which at the time of publication, were estimates of 2024 values made in 2025. This means that economic change during 2025 are not captured in the data. Our data also only shows country averages, and does not consider the distribution of income within countries. In some countries high savings rates or other factors may make GDP estimates less reliable as a guide to living standards. Finally, we rely on GDP estimates which are themselves uncertain, and, research suggests, may be especially unreliable for authoritarian countries.  
 
-For Aruba, Bhutan, Qatar and Tonga, we used 2022 GDP values from the World Bank coupled with 2023 growth estimates from the IMF, as World Bank values for 2023 were missing.
+For Aruba, Bhutan, South Korea, Palau, Tonga and Tuvalu, we used 2023 GDP values from the World Bank coupled with 2024 growth estimates from the IMF, as World Bank values for 2024 were missing.
 
 ## Data sources
 [OECD](https://data.oecd.org/), [World Bank](https://data.worldbank.org/), [UN](https://population.un.org/dataportal/), [Penn World Table](https://www.rug.nl/ggdc/productivity/pwt/?lang=en), [IMF](https://www.imf.org/external/datamapper/NGDP_RPCH@WEO/PER)
 
 ## Suggested citation
-The Economist and Solstad, Sondre (corresponding author), 2023. "All work and no play", The Economist, October 4th issue, 2023.
-
+The Economist and Solstad, Sondre, 2025. GDP per Hour Estimates [dataset]. The Economist. Available at: https://github.com/TheEconomist/the-economist-gdp-per-hour-estimates.

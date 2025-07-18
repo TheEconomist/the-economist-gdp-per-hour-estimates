@@ -5,6 +5,7 @@ library(readxl)
 library(countrycode)
 
 # Step 1: Load data ------------------------------------
+current_year <- 2025
 
 # Get extra WDI data:
 library(WDI)
@@ -37,7 +38,7 @@ un_countries <- countrycode::codelist %>%
 wdi_dat <- wdi_dat[!(wdi_dat$country %in% 
                      unique(wdi_dat$country[wdi_dat$iso3c %in% 
                                               setdiff(wdi_dat$iso3c, un_countries) & 
-                                              wdi_dat$pop < 500000 & wdi_dat$year == 2023])), ] 
+                                              wdi_dat$pop < 500000 & wdi_dat$year == current_year-1])), ] 
 # These are:
 # [1] "Aruba"                     "American Samoa"            "Bermuda"                   "Channel Islands"          
 # [5] "Curacao"                   "Cayman Islands"            "Faroe Islands"             "Gibraltar"                
@@ -79,11 +80,11 @@ oil$year <- oil$Year
 oil$iso3c <- oil$Code
 oil$oil <- oil$`Oil proved reserves - BBL`
 
-# Assume oil reserves in 2021-2023 = those in 2020
-for(i in 2021:2023){
-temp <- oil[oil$year == 2020, ]
-temp$year <- i
-oil <- rbind(oil, temp)
+# Assume oil reserves = those in 2020
+for(i in 2021:(current_year-1)){
+  temp <- oil[oil$year == 2020, ]
+  temp$year <- i
+  oil <- rbind(oil, temp)
 }
 oil <- unique(oil[, c('year', 'iso3c', 'oil')])
 
@@ -249,7 +250,7 @@ dat$hours_worked_over_pop_predicted <- predict(gbt_fit, newdata = as.matrix(dat[
 dat$hours_worked_over_pop_modelled <- dat$hours_worked_over_pop_combined
 
 # If known value in 2015 or later, use this for future values. (Over-time changes with the exception of temporary decline during pandemic typically very slight)
-for(i in 2016:2023){
+for(i in 2016:(current_year-1)){
   for(j in unique(dat$iso3c)){
     if(length(dat$hours_worked_over_pop_combined[dat$year == i & dat$iso3c == j]) > 0){
       if(is.na(dat$hours_worked_over_pop_combined[dat$year == i & dat$iso3c == j])){
@@ -277,12 +278,12 @@ dat$is_grouping <- is.na(countrycode(dat$iso3c, 'iso3c', 'country.name'))
 dat$hours_worked_KNOWN_PLUS_ESTIMATED <- dat$hours_worked_over_pop_combined*dat$pop
 
 dat$hours_worked_adjustment <- NA
-for(i in 2015:2023){
+for(i in 2015:(current_year-1)){
   dat$hours_worked_adjustment[dat$year == i] <- 1/(dat$hours_worked_over_pop_combined[dat$year == i] / weighted.mean(dat$hours_worked_over_pop_combined[dat$year == i], w = dat$pop[dat$year == i], na.rm = T))
 }
 
 # Inspect:
-ggplot(dat[!dat$is_grouping & dat$year == 2023 & !is.na(dat$country), ], aes(y=reorder(country, gdp_ppp_over_pop), col=use_model, x=hours_worked_adjustment))+geom_point()
+ggplot(dat[!dat$is_grouping & dat$year == (current_year-1) & !is.na(dat$country), ], aes(y=reorder(country, gdp_ppp_over_pop), col=use_model, x=hours_worked_adjustment))+geom_point()
 
 # Clean data:
 for(i in NA_impute_vars){
@@ -298,20 +299,81 @@ for(i in NA_impute_vars){
 dat$gdp_ppp_over_pop_adjusted_for_hours <- dat$gdp_ppp_over_pop*dat$hours_worked_adjustment
 dat$gdp_ppp_over_population_15_to_65 <- dat$gdp_ppp / (dat$pop*dat$pop_15_to_64)
 
+# Inspect:
+ggplot(dat %>% filter(iso3c %in% sample(unique(iso3c), 10), year >= 2020), aes(x=year, y=gdp_ppp_over_pop_adjusted_for_hours))+geom_line(aes(col='ppp adjusted for hours'))+geom_line(aes(y=gdp_ppp_over_pop, col = 'ppp'))+geom_line(aes(y=gdp_over_pop, col='nominal'))+facet_wrap(.~iso3c, scales = 'free_y')
+
 write_csv(dat, "output-data/gdp_over_hours_worked_with_estimated_hours_worked.csv")
-write_csv(dat[dat$year == 2023 & !dat$is_grouping, c('year', 'country', 'iso3c', 'pop', 'gdp_over_pop', 'gdp_ppp_over_pop', 'gdp_ppp_over_population_15_to_65', 'gdp_ppp_over_pop_adjusted_for_hours', 'estimated_using_past_value', "estimated_using_model")], 
-          "output-data/gdp_2023_for_interactive.csv")
+write_csv(dat[dat$year == (current_year-1) & !dat$is_grouping, c('year', 'country', 'economist_style_country_name', 'iso3c', 'pop', 'gdp_over_pop', 'gdp_ppp_over_pop', 'gdp_ppp_over_population_15_to_65', 'gdp_ppp_over_pop_adjusted_for_hours', 'estimated_using_past_value', "estimated_using_model")], 
+          paste0("output-data/gdp_", current_year-1, "_for_interactive.csv"))
 
 # Add ranks:
-dat <- na.omit(dat[dat$year == 2023 & dat$country != 'Ireland' & !dat$is_grouping, c('year', 'country', 'iso3c', 'pop', 'gdp_over_pop', 'gdp_ppp_over_pop', 'gdp_ppp_over_population_15_to_65', 'gdp_ppp_over_pop_adjusted_for_hours')])
+ranks <- na.omit(dat[dat$year == (current_year-1) & !dat$country %in% c('Ireland', 'Luxembourg') & !dat$is_grouping, c('year', 'country', 'economist_style_country_name', 'iso3c', 'pop', 'gdp_over_pop', 'gdp_ppp_over_pop', 'gdp_ppp_over_population_15_to_65', 'gdp_ppp_over_pop_adjusted_for_hours')])
 
 # Add rank columns
-dat$gdp_over_pop_rank <- rank(-dat$gdp_over_pop, ties.method = "min")
-dat$gdp_ppp_over_pop_rank <- rank(-dat$gdp_ppp_over_pop, ties.method = "min")
-dat$gdp_ppp_over_population_15_to_65_rank <- rank(-dat$gdp_ppp_over_population_15_to_65, ties.method = "min")
-dat$gdp_ppp_over_pop_adjusted_for_hours_rank <- rank(-dat$gdp_ppp_over_pop_adjusted_for_hours, ties.method = "min")
-dat$source <- "The Economist"
+ranks$gdp_over_pop_rank <- rank(-ranks$gdp_over_pop, ties.method = "min")
+ranks$gdp_ppp_over_pop_rank <- rank(-ranks$gdp_ppp_over_pop, ties.method = "min")
+ranks$gdp_ppp_over_population_15_to_65_rank <- rank(-ranks$gdp_ppp_over_population_15_to_65, ties.method = "min")
+ranks$gdp_ppp_over_pop_adjusted_for_hours_rank <- rank(-ranks$gdp_ppp_over_pop_adjusted_for_hours, ties.method = "min")
+ranks$source <- "The Economist"
 
-write_csv(dat, 
-          "output-data/the_economist_richest_countries_2024.csv")
+write_csv(ranks, 
+          paste0("output-data/the_economist_richest_countries_", current_year, ".csv"))
 
+
+# Step 4: Testing data output ------------------------------------
+
+# 1. Core variables must be non-negative
+stopifnot(
+  all(dat$pop                          > 0,  na.rm = TRUE),
+  all(dat$gdp_over_k_hours_worked     >= 0,  na.rm = TRUE),
+  all(dat$hours_worked_over_pop_combined >= 0, na.rm = TRUE)
+)
+
+# Identify the last two years for which we actually have data
+years <- sort(unique(dat$year), decreasing = TRUE)
+latest <- years[1]
+prev   <- years[2]
+
+# 2. No country’s GDP-per-hour should change by more than ±20% since the previous data year
+gdp_growth <- dat %>%
+  filter(year %in% c(prev, latest)) %>%
+  select(iso3c, year, gdp_over_k_hours_worked) %>%
+  pivot_wider(names_from     = year,
+              values_from    = gdp_over_k_hours_worked,
+              names_prefix   = "y") %>%
+  mutate(pct_change = (.[[paste0("y", latest)]] /
+                         .[[paste0("y", prev)]] - 1) * 100)
+stopifnot(all(abs(gdp_growth$pct_change) <= 20, na.rm = TRUE))
+
+# 3. Year-on-year hours-worked adjustment should not differ by more than 5%
+hour_adj_change <- dat %>%
+  filter(year %in% c(prev, latest)) %>%
+  select(iso3c, year, hours_worked_adjustment) %>%
+  pivot_wider(names_from     = year,
+              values_from    = hours_worked_adjustment,
+              names_prefix   = "h") %>%
+  mutate(diff_pct = abs((.[[paste0("h", latest)]] /
+                           .[[paste0("h", prev)]] - 1) * 100))
+stopifnot(all(hour_adj_change$diff_pct <= 5, na.rm = TRUE))
+
+# 4. Country coverage shouldn’t vary by more than 5
+n_prev   <- dat %>% filter(year == prev)   %>% pull(iso3c) %>% unique() %>% length()
+n_latest <- dat %>% filter(year == latest)%>% pull(iso3c) %>% unique() %>% length()
+stopifnot(abs(n_latest - n_prev) <= 5)
+
+# 5. Global weighted avg hours-worked-per-pop shift should be ≤2%
+avg_prev   <- with(dat[dat$year == prev,],
+                   weighted.mean(hours_worked_over_pop_combined, w = pop, na.rm = TRUE))
+avg_latest <- with(dat[dat$year == latest,],
+                   weighted.mean(hours_worked_over_pop_combined, w = pop, na.rm = TRUE))
+stopifnot(abs((avg_latest / avg_prev - 1) * 100) <= 2)
+
+# Inspect a few country series manually
+ggplot(dat %>% filter(iso3c %in% sample(unique(iso3c), 9), year >= 2010), 
+       aes(x=year))+
+  geom_line(aes(y=gdp_over_pop, col='gdp/pop'))+
+  geom_line(aes(y=gdp_ppp_over_pop, col='gdp ppp/pop'))+
+  geom_line(aes(y=gdp_ppp_over_pop_adjusted_for_hours, col='gdp ppp+hours/pop'))+
+  facet_wrap(.~economist_style_country_name)
+
+                                                                                                                                 

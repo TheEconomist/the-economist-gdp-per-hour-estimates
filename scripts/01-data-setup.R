@@ -227,4 +227,9 @@ wdi_dat$gdp_over_pop_c <- wdi_dat$gdp_c/wdi_dat$pop
 wdi_dat$gdp_ppp_over_k_hours_worked_c <- 1000*wdi_dat$gdp_ppp_c/wdi_dat$total_hours
 
 # Export to file
+
+# Get country names in The Economist style:
+cnames <- read_csv('source-data/country-names.csv') 
+wdi_dat <- merge(wdi_dat, cnames %>% select('ISOA3', 'Name') %>% rename(economist_style_country_name = Name) %>% unique() %>% na.omit(), by.x='iso3c', by.y='ISOA3', all.x=T)
+
 write_csv(wdi_dat, 'output-data/gdp_over_hours_worked.csv')
