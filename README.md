@@ -25,5 +25,5 @@ For Aruba, Bhutan, South Korea, Palau, Tonga and Tuvalu, we used 2023 GDP values
 ## Data sources
 [OECD](https://data.oecd.org/), [World Bank](https://data.worldbank.org/), [UN](https://population.un.org/dataportal/), [Penn World Table](https://www.rug.nl/ggdc/productivity/pwt/?lang=en), [IMF](https://www.imf.org/external/datamapper/NGDP_RPCH@WEO/PER)
 
-## Suggested citation
-The Economist and Solstad, Sondre, 2025. GDP per Hour Estimates [dataset]. The Economist. Available at: https://github.com/TheEconomist/the-economist-gdp-per-hour-estimates.
+## Suggested academic citation
+The Economist and Solstad, Sondre, 2025. GDP per hour estimates [dataset]. The Economist. Available at: https://github.com/TheEconomist/the-economist-gdp-per-hour-estimates.
