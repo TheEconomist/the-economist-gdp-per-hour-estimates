@@ -2,7 +2,7 @@
 
 This repo contains the data and code of _The Economist's_ annual ranking of the world's richest countries. To replicate the analysis, please run ['scripts/01-data-setup.R'](scripts/01-data-setup.R), ['scripts/02-charts.R'](scripts/02-charts.R) and ['scripts/03-estimate-gdp-per-hour-for-all-countries.R'](scripts/03-estimate-gdp-per-hour-for-all-countries.R), in that order. 
 
-We exclude Ireland from our analysis and data due to issues with its GDP figures explained [here](https://www.economist.com/the-economist-explains/2023/10/31/whats-weird-about-irelands-gdp), and as of 2025, Luxembourg, as it gains abnormally from people who commute into the country to work. We also exclude small island states affiliated with other countries (those with population below 500,000 and which are not members of the UN).
+We exclude Ireland from our analysis and data due to issues with its GDP figures explained [here](https://www.economist.com/the-economist-explains/2023/10/31/whats-weird-about-irelands-gdp), and as of 2025, Luxembourg, as it benefits disproportionally from people who commute into the country to work. We also exclude small island states affiliated with other countries (those with population below 500,000 and which are not members of the UN).
 
 Our latest data can be downloaded [here](https://github.com/TheEconomist/the-economist-gdp-per-hour-estimates/blob/main/output-data/gdp_over_hours_worked_with_estimated_hours_worked.csv).
 
